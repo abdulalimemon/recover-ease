@@ -54,6 +54,24 @@ const MobileNavbar = ({ toggleMenu }: MenuManager) => {
               >
                 Relief Goods
               </Link>
+              <Link
+                to="/leaderboard"
+                className="decoration-none font-semibold"
+              >
+                Leaderboard
+              </Link>
+              <Link
+                to="/community"
+                className="decoration-none font-semibold"
+              >
+                Community
+              </Link>
+              <Link
+                to="/volunteer"
+                className="decoration-none font-semibold"
+              >
+                Volunteer
+              </Link>
             </nav>
             {token ? (
               <Button className="mt-4 w-1/2 mx-auto" onClick={handleLogOut}>

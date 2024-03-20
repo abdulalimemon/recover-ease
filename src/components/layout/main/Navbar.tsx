@@ -51,6 +51,24 @@ const Navbar = () => {
                   Relief Goods
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/leaderboard"
+                  className="decoration-none font-semibold"
+                >
+                  Leaderboard
+                </Link>
+              </li>
+              <li>
+                <Link to="/community" className="decoration-none font-semibold">
+                  Community
+                </Link>
+              </li>
+              <li>
+                <Link to="/volunteer" className="decoration-none font-semibold">
+                  Volunteer
+                </Link>
+              </li>
               <li className="size-5">
                 <Sun
                   className="absolute h-[1.25rem] w-[1.25rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 cursor-pointer"

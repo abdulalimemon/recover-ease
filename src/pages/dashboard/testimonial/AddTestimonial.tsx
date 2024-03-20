@@ -62,7 +62,7 @@ const AddTestimonial = () => {
                   <Input
                     type="text"
                     placeholder={user?.name}
-                    disabled
+                    readOnly
                     id="name"
                     {...register("name")}
                   />
@@ -76,17 +76,14 @@ const AddTestimonial = () => {
                   <Input
                     type="email"
                     placeholder={user?.email}
-                    disabled
+                    readOnly
                     id="email"
                     {...register("email")}
                   />
                 </div>
               </div>
               <div>
-                <label
-                  htmlFor="image"
-                  className="text-base font-medium text"
-                >
+                <label htmlFor="image" className="text-base font-medium text">
                   {" "}
                   Image URL{" "}
                 </label>
@@ -240,7 +237,7 @@ const AddTestimonial = () => {
               </div>
               <div>
                 <Button className="w-full" type="submit">
-                  Add Supply Post <ArrowRight className="ml-2" size={16} />
+                  Add Testimonial <ArrowRight className="ml-2" size={16} />
                 </Button>
               </div>
             </div>
