@@ -1,30 +1,64 @@
-# React + TypeScript + Vite
+<p align="center">
+  <img src="public/icon.png" alt="Recover Ease Logo" height="150dp">
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<h1 align="center">Recover Ease</h1>
+<p align="center">Discover a lifeline in Recover Ease: an indispensable platform linking generous donors, dedicated volunteers, and communities in need during times of crisis. Through seamless real-time updates and secure donation channels, we unite hearts and hands, empowering each user to create profound change when it's needed most</p>
 
-Currently, two official plugins are available:
+<p align=center>
+  <a href="https://recover-ease.netlify.app/">Website Link</a> ·
+  <a href="https://github.com/abdulalimemon/recover-ease">Frontend repository link</a> ·
+  <a href="https://github.com/abdulalimemon/recover-ease-server">Backend repository link</a>
+</p>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### General features
 
-- Configure the top-level `parserOptions` property like this:
+- Fully Responsive Design for all devices
+- Light/Dark Mode
+- Customizable User Dashboard
+- Skeleton Loading
+- Social Media Integration
+- Back to top button
+- Animations
+- Charts
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### Pages
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Home
+- User Dashboard
+- Relief goods page
+- Relief good detail page
+- Contact Us
+- About Us
+
+### Tech Stack
+
+- React JS
+- Typescript
+- Tailwind CSS
+- Shadcn UI
+
+### Packages
+
+- clsx
+- framer-motion
+- jwt-decode
+- lucide-react
+- mini-svg-data-uri
+- next-themes
+- react
+- react-dom
+- react-hook-form
+- react-redux
+- react-router-dom
+- recharts
+- redux-persist
+- sonner
+- swiper
+- tailwind-merge
+- tailwindcss-animate
+- yet-another-react-lightbox
