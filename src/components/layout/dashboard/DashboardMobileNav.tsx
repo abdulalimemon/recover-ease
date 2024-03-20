@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { BarChart, Wallet, ListPlus, Menu, X } from "lucide-react";
+import { BarChart, Wallet, ListPlus, Menu, X, MessageSquareCode } from "lucide-react";
 
 const DashboardMobileNav = () => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -72,6 +72,19 @@ const DashboardMobileNav = () => {
                       <ListPlus className="h-5 w-5" aria-hidden="true" />
                       <span className="mx-2 text-sm font-medium">
                         Create Supplies
+                      </span>
+                    </NavLink>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
+                          : "DashboardNavMobile"
+                      }
+                      to="/dashboard/create-testimonial"
+                    >
+                      <MessageSquareCode className="h-5 w-5" aria-hidden="true" />
+                      <span className="mx-2 text-sm font-medium">
+                        Create Testimonial
                       </span>
                     </NavLink>
                   </div>

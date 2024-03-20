@@ -1,6 +1,6 @@
 import { logout } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/hooks";
-import { BarChart, Wallet, ListPlus, LogIn } from "lucide-react";
+import { BarChart, Wallet, ListPlus, LogIn, MessageSquareCode } from "lucide-react";
 import { Link, NavLink } from "react-router-dom";
 
 const DashboardSidebar = () => {
@@ -53,6 +53,19 @@ const DashboardSidebar = () => {
                 <ListPlus className="h-5 w-5" aria-hidden="true" />
                 <span className="mx-2 text-sm font-medium">
                   Create Supplies
+                </span>
+              </NavLink>
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "DashboardNavLink bg-gray-100 text-gray-700"
+                    : "DashboardNavLink"
+                }
+                to="/dashboard/create-testimonial"
+              >
+                <MessageSquareCode className="h-5 w-5" aria-hidden="true" />
+                <span className="mx-2 text-sm font-medium">
+                Create Testimonial
                 </span>
               </NavLink>
             </div>
