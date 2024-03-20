@@ -1,0 +1,21 @@
+.light .swiper-pagination-bullet {
+  opacity: 0.9 !important;
+  background: #0b1221 !important;
+}
+
+.dark .swiper-pagination-bullet {
+  opacity: 0.9 !important;
+  background: #f5f8fb !important;
+}
+
+.light .swiper-pagination-bullet-active,
+.dark .swiper-pagination-bullet-active {
+  background: #570df8 !important;
+  height: 10px;
+  width: 10px;
+}
+
+.react-photo-album--photo {
+  border-radius: 10px;
+}
+
