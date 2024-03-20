@@ -34,6 +34,7 @@
 - Relief good detail page
 - Contact Us
 - About Us
+- FAQ
 
 ### Tech Stack
 

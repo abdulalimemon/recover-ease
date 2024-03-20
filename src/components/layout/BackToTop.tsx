@@ -1,5 +1,24 @@
 import { ArrowUp } from "lucide-react";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
+const button = {
+  initial: { y: 0 },
+  animate: {
+    y: -20,
+    transition: {
+      scale: {
+        duration: 1,
+      },
+      y: {
+        duration: 2,
+        repeat: Infinity,
+        repeatType: "reverse",
+        ease: "easeInOut",
+      },
+    },
+  },
+};
 
 const BackToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -28,7 +47,12 @@ const BackToTop = () => {
   }, []);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <motion.div
+      className="fixed bottom-4 right-4 z-50"
+      variants={button}
+      initial="initial"
+      animate="animate"
+    >
       <button
         onClick={scrollToTop}
         className={`inline-flex items-center p-2 md:p-3 rounded-full shadow-lg text-base-100 hover:opacity-80 bg-primary transition-opacity overflow-y-auto ${
@@ -40,7 +64,7 @@ const BackToTop = () => {
           aria-hidden="true"
         />
       </button>
-    </div>
+    </motion.div>
   );
 };
 
