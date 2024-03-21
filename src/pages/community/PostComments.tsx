@@ -2,12 +2,11 @@ import Container from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useContactUsMutation } from "@/redux/features/contactUS/contactUsApi";
-import { Mail, PhoneCall } from "lucide-react";
+import { usePostCommentMutation } from "@/redux/features/comment/commentApi";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-export type TContactInputs = {
+export type TCommentInputs = {
   name: string;
   email: string;
   message: string;
@@ -18,23 +17,25 @@ const PostComments = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TContactInputs>();
+    reset,
+  } = useForm<TCommentInputs>();
 
-  const [contact] = useContactUsMutation();
+  const [postComment] = usePostCommentMutation();
 
-  const onSubmit: SubmitHandler<TContactInputs> = async (data: FieldValues) => {
+  const onSubmit: SubmitHandler<TCommentInputs> = async (data: FieldValues) => {
     try {
-      const contactInfo = {
+      const commentInfo = {
         name: data.name,
         email: data.email,
         message: data.message,
       };
 
-      const res = await contact(contactInfo).unwrap();
+      const res = await postComment(commentInfo).unwrap();
 
       toast(res.message, {
         description: "Thank you.",
       });
+      reset();
     } catch (error) {
       toast("Please, try again.");
     }
@@ -44,12 +45,47 @@ const PostComments = () => {
       <Container className="py-5">
         <div>
           <div className="py-10">
+            <p className="text-sm lg:text-xl text-center font-bold text">
+              Leave a comment.
+            </p>
             <h2 className="text-2xl lg:text-4xl text-center font-bold text">
               Express your thoughts.
             </h2>
           </div>
           <div className="p-4 py-6 rounded-lg bg-slate-100 dark:bg-slate-900 md:p-8 max-w-3xl mx-auto">
             <form onSubmit={handleSubmit(onSubmit)}>
+              <div className="w-full my-4">
+                <label className="block mb-2 text-sm text font-semibold">
+                  Comment
+                </label>
+                <Textarea
+                  placeholder="Comment"
+                  {...register("message", {
+                    required: {
+                      value: true,
+                      message: "Comment is Required.",
+                    },
+                    minLength: {
+                      value: 50,
+                      message: "Comment must be 50 characters or longer.",
+                    },
+                  })}
+                />
+
+                <div className="pt-2">
+                  {errors.message?.type === "required" && (
+                    <span className="text-sm mt-2 text-red-600 font-semibold">
+                      {errors.message.message}
+                    </span>
+                  )}
+                  {errors.message?.type === "minLength" && (
+                    <span className="text-sm mt-2 text-red-600 font-semibold">
+                      {errors.message.message}
+                    </span>
+                  )}
+                </div>
+              </div>
+
               <div className="-mx-2 md:items-center md:flex">
                 <div className="flex-1 px-2">
                   <label className="block mb-2 font-semibold text text-sm">
@@ -117,42 +153,9 @@ const PostComments = () => {
                   )}
                 </div>
               </div>
-
-              <div className="w-full mt-4">
-                <label className="block mb-2 text-sm text font-semibold">
-                  Comment
-                </label>
-                <Textarea
-                  placeholder="Comment"
-                  {...register("message", {
-                    required: {
-                      value: true,
-                      message: "Comment is Required.",
-                    },
-                    minLength: {
-                      value: 50,
-                      message: "Comment must be 50 characters or longer.",
-                    },
-                  })}
-                />
-
-                <div className="pt-2">
-                  {errors.message?.type === "required" && (
-                    <span className="text-sm mt-2 text-red-600 font-semibold">
-                      {errors.message.message}
-                    </span>
-                  )}
-                  {errors.message?.type === "minLength" && (
-                    <span className="text-sm mt-2 text-red-600 font-semibold">
-                      {errors.message.message}
-                    </span>
-                  )}
-                </div>
-              </div>
-
               <div className="mt-5">
                 <Button type="submit" className="w-full">
-                  Send message
+                  Post Comment
                 </Button>
               </div>
             </form>

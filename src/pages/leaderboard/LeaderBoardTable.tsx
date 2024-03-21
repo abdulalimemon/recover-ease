@@ -33,7 +33,7 @@ const LeaderBoardTable = () => {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead></TableHead>
+                <TableHead>Serial</TableHead>
                 <TableHead>Name</TableHead>
                 <TableHead>Amount</TableHead>
               </TableRow>
