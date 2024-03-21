@@ -36,7 +36,7 @@ const MobileNavbar = ({ toggleMenu }: MenuManager) => {
                   className="w-full h-full rounded-full p-2"
                 >
                   <span className="sr-only">Close menu</span>
-                  <X className="size-6" aria-hidden="true" />
+                  <X className="size-5" aria-hidden="true" />
                 </Button>
               </div>
             </div>

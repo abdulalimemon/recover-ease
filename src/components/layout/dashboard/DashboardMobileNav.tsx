@@ -1,6 +1,13 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { BarChart, Wallet, ListPlus, Menu, X, MessageSquareCode } from "lucide-react";
+import {
+  BarChart,
+  Wallet,
+  ListPlus,
+  Menu,
+  X,
+  MessageSquareCode,
+} from "lucide-react";
 
 const DashboardMobileNav = () => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -26,10 +33,10 @@ const DashboardMobileNav = () => {
               Recover <span className="text-red-500">Ease</span>
             </h2>
             <button
-              className="text-xl rounded-full p-2 cursor-pointer fixed right-7 z-50"
+              className="rounded-full p-2 cursor-pointer fixed right-7 z-50 bg-black dark:bg-white dark:text-black text-white"
               onClick={() => setShowSidebar(!showSidebar)}
             >
-              <X className="size-6" />
+              <X className="size-5" />
             </button>
           </div>
           <div className="p-1 mt-2">
@@ -82,7 +89,10 @@ const DashboardMobileNav = () => {
                       }
                       to="/dashboard/create-testimonial"
                     >
-                      <MessageSquareCode className="h-5 w-5" aria-hidden="true" />
+                      <MessageSquareCode
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
                       <span className="mx-2 text-sm font-medium">
                         Create Testimonial
                       </span>

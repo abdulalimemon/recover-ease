@@ -9,7 +9,7 @@ const VolunteerBanner = () => {
             <h3 className="text-sm font-medium md:font-bold md:text-2xl text mt-3">
               Discover Opportunities to Make a Difference
             </h3>
-            <h2 className="text-3xl font-bold md:text-6xl text-gradient">
+            <h2 className="text-3xl font-bold md:text-6xl text-gradient py-2 md:py-5">
               Join Our Volunteer Community.
             </h2>
 
