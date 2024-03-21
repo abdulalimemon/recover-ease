@@ -35,6 +35,11 @@
 - Contact Us
 - About Us
 - FAQ
+- Leaderboard
+- Community
+- My profile
+- Volunteer
+- Login & Register
 
 ### Tech Stack
 
