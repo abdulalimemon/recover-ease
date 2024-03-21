@@ -1,8 +1,12 @@
+import LeaderBoardBanner from "./LeaderBoardBanner";
+import LeaderBoardTable from "./LeaderBoardTable";
+
 const Leaderboard = () => {
   return (
-    <div>
-      <h2>Welcome to the Leaderboard page</h2>
-    </div>
+    <>
+      <LeaderBoardBanner />
+      <LeaderBoardTable />
+    </>
   );
 };
 

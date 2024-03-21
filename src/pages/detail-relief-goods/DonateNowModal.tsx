@@ -19,9 +19,10 @@ import { toast } from "sonner";
 import { useDonationMutation } from "@/redux/features/reliefGoods/donationApi";
 
 export type TDonationInputs = {
+  _id: string;
   name: string;
   email: string;
-  amount: number;
+  amount: string;
 };
 
 const DonateNowModal = ({ data }: { data: TReliefGoodsType }) => {

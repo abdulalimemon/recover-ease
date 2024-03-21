@@ -15,8 +15,8 @@ import TableSkeleton from "./TableSkeleton";
 const AllSuppliesTable = () => {
   const { data, isLoading, isError } = useGetSupplyQuery(null);
   return (
-    <div className="lg:px-10 my-10 overflow-x-scroll">
-      <Table className="overflow-x-scroll">
+    <div className="lg:px-10 my-10 ">
+      <Table >
         <TableHeader>
           <TableRow>
             <TableHead>Title</TableHead>
