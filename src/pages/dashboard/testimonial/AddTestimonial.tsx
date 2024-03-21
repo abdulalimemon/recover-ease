@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { useAddTestimonialMutation } from "@/redux/features/testimonial/testimonial";
+import { useAddTestimonialMutation } from "@/redux/features/testimonial/testimonialApi";
 import { useAppSelector } from "@/redux/hooks";
 import { ArrowRight } from "lucide-react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";

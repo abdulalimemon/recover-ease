@@ -1,15 +1,16 @@
 import Container from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useContactUsMutation } from "@/redux/features/contactUS/contactUsApi";
+import { useAddVolunteerMutation } from "@/redux/features/volunteer/volunteerApi";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
 export type TContactInputs = {
   name: string;
   email: string;
-  message: string;
+  imageUrl: string;
+  phone: number;
+  location: string;
 };
 
 const VolunteerForm = () => {
@@ -19,20 +20,23 @@ const VolunteerForm = () => {
     formState: { errors },
   } = useForm<TContactInputs>();
 
-  const [contact] = useContactUsMutation();
+  const [addVolunteer] = useAddVolunteerMutation();
 
   const onSubmit: SubmitHandler<TContactInputs> = async (data: FieldValues) => {
     try {
-      const contactInfo = {
+      const volunteerInfo = {
         name: data.name,
         email: data.email,
-        message: data.message,
+        imageUrl: data.imageUrl,
+        phone: data.phone,
+        location: data.location,
       };
 
-      const res = await contact(contactInfo).unwrap();
+      const res = await addVolunteer(volunteerInfo).unwrap();
 
       toast(res.message, {
-        description: "Thank you.",
+        description:
+          "Thank you for joining our volunteer community! Your contribution is greatly appreciated.",
       });
     } catch (error) {
       toast("Please, try again.");
@@ -120,33 +124,103 @@ const VolunteerForm = () => {
               </div>
             </div>
 
+            <div className="mt-4">
+              <label htmlFor="imageUrl" className="text-base font-medium text">
+                {" "}
+                Image URL{" "}
+              </label>
+              <div className="mt-2">
+                <Input
+                  type="text"
+                  placeholder="Image URL"
+                  id="imageUrl"
+                  {...register("imageUrl", {
+                    required: {
+                      value: true,
+                      message: "Image URL is Required.",
+                    },
+                    pattern: {
+                      value:
+                        /^(?:(?:https?|ftp):\/\/)?[\w-]+(\.[\w-]+)+[\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-]?$/,
+                      message: "Please provide a valid image URL.",
+                    },
+                  })}
+                />
+              </div>
+              <div className="pt-2">
+                {errors.imageUrl?.type === "required" && (
+                  <span className="text-sm mt-2 text-red-600 font-semibold">
+                    {errors.imageUrl.message}
+                  </span>
+                )}
+                {errors.imageUrl?.type === "pattern" && (
+                  <span className="text-sm mt-2 text-red-600 font-semibold">
+                    {errors.imageUrl.message}
+                  </span>
+                )}
+              </div>
+            </div>
+
             <div className="w-full mt-4">
               <label className="block mb-2 text-sm text font-semibold">
-                Message
+                Phone Number
               </label>
-              <Textarea
-                placeholder="Message"
-                {...register("message", {
+              <Input
+                placeholder="Phone Number"
+                {...register("phone", {
                   required: {
                     value: true,
-                    message: "Message is Required.",
+                    message: "Phone Number is Required.",
                   },
-                  minLength: {
-                    value: 50,
-                    message: "Message must be 50 characters or longer.",
+                  pattern: {
+                    value:
+                      /^(?:\+?(88)?01)?(?:\d{9}|\d{3}[-.\s]?\d{3}[-.\s]?\d{4})$/,
+                    message: "Please enter a valid phone number.",
                   },
                 })}
               />
 
               <div className="pt-2">
-                {errors.message?.type === "required" && (
+                {errors.phone?.type === "required" && (
                   <span className="text-sm mt-2 text-red-600 font-semibold">
-                    {errors.message.message}
+                    {errors.phone.message}
                   </span>
                 )}
-                {errors.message?.type === "minLength" && (
+                {errors.phone?.type === "pattern" && (
                   <span className="text-sm mt-2 text-red-600 font-semibold">
-                    {errors.message.message}
+                    {errors.phone.message}
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div className="w-full mt-4">
+              <label className="block mb-2 text-sm text font-semibold">
+                Location
+              </label>
+              <Input
+                placeholder="Location"
+                {...register("location", {
+                  required: {
+                    value: true,
+                    message: "Location is Required.",
+                  },
+                  minLength: {
+                    value: 3,
+                    message: "Location name must be 3 characters or longer.",
+                  },
+                })}
+              />
+
+              <div className="pt-2">
+                {errors.location?.type === "required" && (
+                  <span className="text-sm mt-2 text-red-600 font-semibold">
+                    {errors.location.message}
+                  </span>
+                )}
+                {errors.location?.type === "minLength" && (
+                  <span className="text-sm mt-2 text-red-600 font-semibold">
+                    {errors.location.message}
                   </span>
                 )}
               </div>
