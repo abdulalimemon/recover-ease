@@ -74,7 +74,7 @@ const DashboardNavbar = () => {
               <DropdownMenuSeparator />
               <DropdownMenuGroup className="cursor-pointer">
                 <DropdownMenuItem className="cursor-pointer">
-                  Profile
+                  <Link to="/dashboard/profile">Profile</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem className="cursor-pointer">
                   Settings

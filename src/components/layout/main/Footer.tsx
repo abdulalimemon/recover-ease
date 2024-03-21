@@ -23,7 +23,7 @@ const Footer = () => {
           </div>
           <div className="flex justify-center pt-4 space-x-4 lg:pt-0 lg:col-end-13">
             <a
-              href="#"
+              href="mailto:abdulalimemon2@gmail.com"
               title="Email"
               className="flex items-center justify-center w-10 h-10 rounded-full bg-primary  text-white dark:text-black cursor-pointer"
             >

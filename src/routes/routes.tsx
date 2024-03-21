@@ -18,6 +18,7 @@ import Volunteer from "@/pages/volunteer";
 import Testimonial from "@/pages/dashboard/testimonial";
 import AboutUs from "@/pages/about-us";
 import ContactUs from "@/pages/contact-us";
+import Profile from "@/pages/dashboard/profile";
 
 const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
       {
         path: "create-supplies",
         element: <CreateSupplies />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
       {
         path: "create-testimonial",
