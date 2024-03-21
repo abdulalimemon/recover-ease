@@ -5,12 +5,13 @@ import { useAddVolunteerMutation } from "@/redux/features/volunteer/volunteerApi
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-export type TContactInputs = {
+export type TVolunteerInputs = {
   name: string;
   email: string;
-  imageUrl: string;
+  image: string;
   phone: number;
   location: string;
+  occupation:string;
 };
 
 const VolunteerForm = () => {
@@ -18,18 +19,20 @@ const VolunteerForm = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<TContactInputs>();
+    reset,
+  } = useForm<TVolunteerInputs>();
 
   const [addVolunteer] = useAddVolunteerMutation();
 
-  const onSubmit: SubmitHandler<TContactInputs> = async (data: FieldValues) => {
+  const onSubmit: SubmitHandler<TVolunteerInputs> = async (data: FieldValues) => {
     try {
       const volunteerInfo = {
         name: data.name,
         email: data.email,
-        imageUrl: data.imageUrl,
+        image: data.image,
         phone: data.phone,
         location: data.location,
+        occupation: data.occupation,
       };
 
       const res = await addVolunteer(volunteerInfo).unwrap();
@@ -38,6 +41,7 @@ const VolunteerForm = () => {
         description:
           "Thank you for joining our volunteer community! Your contribution is greatly appreciated.",
       });
+      reset();
     } catch (error) {
       toast("Please, try again.");
     }
@@ -134,7 +138,7 @@ const VolunteerForm = () => {
                   type="text"
                   placeholder="Image URL"
                   id="imageUrl"
-                  {...register("imageUrl", {
+                  {...register("image", {
                     required: {
                       value: true,
                       message: "Image URL is Required.",
@@ -148,18 +152,58 @@ const VolunteerForm = () => {
                 />
               </div>
               <div className="pt-2">
-                {errors.imageUrl?.type === "required" && (
+                {errors.image?.type === "required" && (
                   <span className="text-sm mt-2 text-red-600 font-semibold">
-                    {errors.imageUrl.message}
+                    {errors.image.message}
                   </span>
                 )}
-                {errors.imageUrl?.type === "pattern" && (
+                {errors.image?.type === "pattern" && (
                   <span className="text-sm mt-2 text-red-600 font-semibold">
-                    {errors.imageUrl.message}
+                    {errors.image.message}
                   </span>
                 )}
               </div>
             </div>
+
+            <div className="mt-4">
+                <div className="flex items-center justify-between">
+                  <label
+                    htmlFor="occupation"
+                    className="text-base font-medium text"
+                  >
+                    Occupation
+                  </label>
+                </div>
+                <div className="mt-2">
+                  <Input
+                    type="text"
+                    placeholder="Occupation"
+                    id="occupation"
+                    {...register("occupation", {
+                      required: {
+                        value: true,
+                        message: "Occupation is Required.",
+                      },
+                      minLength: {
+                        value: 3,
+                        message: "Occupation must be 3 characters or longer.",
+                      },
+                    })}
+                  />
+                </div>
+                <div className="pt-2">
+                  {errors.occupation?.type === "required" && (
+                    <span className="text-sm mt-2 text-red-600 font-semibold">
+                      {errors.occupation.message}
+                    </span>
+                  )}
+                  {errors.occupation?.type === "minLength" && (
+                    <span className="text-sm mt-2 text-red-600 font-semibold">
+                      {errors.occupation.message}
+                    </span>
+                  )}
+                </div>
+              </div>
 
             <div className="w-full mt-4">
               <label className="block mb-2 text-sm text font-semibold">

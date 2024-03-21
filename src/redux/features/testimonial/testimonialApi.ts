@@ -8,8 +8,6 @@ const testimonialApi = baseApi.injectEndpoints({
         method: "POST",
         body: userInfo,
       }),
-
-      invalidatesTags: ["Supply"],
     }),
   }),
 });
