@@ -8,12 +8,14 @@ const donationApi = baseApi.injectEndpoints({
         method: "POST",
         body: donationInfo,
       }),
+      invalidatesTags: ["donation"],
     }),
     getDonation: builder.query({
       query: () => ({
         url: "/donation",
         method: "GET",
       }),
+      providesTags: ["donation"],
     }),
   }),
 });
