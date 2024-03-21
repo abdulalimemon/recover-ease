@@ -5,14 +5,14 @@ import { baseApi } from "@/redux/api/baseApi";
 const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     signin: builder.mutation({
-      query: (userInfo : TRegisterInputs) => ({
+      query: (userInfo: TRegisterInputs) => ({
         url: "/register",
         method: "POST",
         body: userInfo,
       }),
     }),
     login: builder.mutation({
-      query: (userInfo : TLoginInputs) => ({
+      query: (userInfo: TLoginInputs) => ({
         url: "/login",
         method: "POST",
         body: userInfo,
