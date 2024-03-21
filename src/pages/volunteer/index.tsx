@@ -1,8 +1,16 @@
+import BenefitsOfVolunteering from "./BenefitsOfVolunteering";
+import HowGetInvolved from "./HowGetInvolved";
+import VolunteerBanner from "./VolunteerBanner";
+import VolunteerForm from "./VolunteerForm";
+
 const Volunteer = () => {
   return (
-    <div>
-      <h2>Welcome to the Volunteer page</h2>
-    </div>
+    <>
+      <VolunteerBanner />
+      <HowGetInvolved />
+      <BenefitsOfVolunteering />
+      <VolunteerForm />
+    </>
   );
 };
 

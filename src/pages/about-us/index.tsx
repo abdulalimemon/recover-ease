@@ -1,8 +1,16 @@
+import HowWeRespond from "../home/HowWeRespond";
+import Newsletter from "../home/Newsletter";
+import WhoWeAre from "../home/WhoWeAre";
+import AboutUsBanner from "./AboutUsBanner";
+
 const AboutUs = () => {
   return (
-    <div>
-      <h2>Welcome to the AboutUs page</h2>
-    </div>
+    <>
+      <AboutUsBanner />
+      <WhoWeAre />
+      <HowWeRespond />
+      <Newsletter/>
+    </>
   );
 };
 
