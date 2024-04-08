@@ -29,11 +29,15 @@ const UserComments = () => {
                 src={user}
                 alt="Avatar"
               />
-              <div className="font-semibold ml-5">
+              <div className="font-semibold ml-5 max-w-md">
                 <h2 className="text-lg font-semibold mb-1 md:mb-2">
                   {item.name}
                 </h2>
-                <p className="text-sm text w-full md:w-3/4">{item.message}</p>
+                <div className="flex flex-wrap">
+                  <p className="text-sm text w-full break-words md:w-3/4">
+                    {item.message}
+                  </p>
+                </div>
               </div>
             </div>
           ))}

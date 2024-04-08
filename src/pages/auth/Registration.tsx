@@ -42,11 +42,11 @@ const Registration = () => {
     }
   };
   return (
-    <section className="h-[100vh] w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
+    <section className="py-28 lg:py-20 w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
-      <Container>
+      <Container className="py-16 md:py-0">
         <div className="flex h-full items-center justify-center py-10 6 sm:py-16 lg:py-24">
-          <div className="xl:mx-auto w-full xl:max-w-sm 2xl:max-w-md">
+          <div className="xl:mx-auto w-full md:max-w-sm 2xl:max-w-md">
             <h2 className="text-center text-2xl font-bold leading-tight ">
               Sign up to create account
             </h2>
