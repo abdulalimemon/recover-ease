@@ -1,11 +1,15 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAppSelector } from "@/redux/hooks";
+import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
   const userInfo = useAppSelector((state) => state.auth.user);
   return (
     <div>
+      <Helmet>
+        <title>Profile - Recover Ease</title>
+      </Helmet>
       <div>
         <h2 className="text-center text-xl font-semibold py-5">My Profile</h2>
       </div>

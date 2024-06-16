@@ -2,10 +2,14 @@ import { Button } from "@/components/ui/button";
 import AllSuppliesTable from "./AllSuppliesTable";
 import { Link } from "react-router-dom";
 import { Plus } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const Supplies = () => {
   return (
     <div>
+      <Helmet>
+        <title>Supplies - Recover Ease</title>
+      </Helmet>
       <h2 className="text-center text-xl font-semibold py-5">
         All Supply Posts.
       </h2>

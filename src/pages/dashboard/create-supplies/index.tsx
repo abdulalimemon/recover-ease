@@ -1,13 +1,19 @@
+import { Helmet } from "react-helmet-async";
 import AddSupplies from "./AddSupplies";
 
 const CreateSupplies = () => {
   return (
-    <div className="mb-10">
-      <h2 className="text-center text-xl font-semibold pt-5">
-        Create Supply.
-      </h2>
-      <AddSupplies />
-    </div>
+    <>
+      <Helmet>
+        <title>Create Supplies - Recover Ease</title>
+      </Helmet>
+      <div className="mb-10">
+        <h2 className="text-center text-xl font-semibold pt-5">
+          Create Supply.
+        </h2>
+        <AddSupplies />
+      </div>
+    </>
   );
 };
 
