@@ -4,6 +4,7 @@ import { useSingleReliefGoodsQuery } from "@/redux/features/reliefGoods/reliefGo
 import { useParams } from "react-router-dom";
 import DetailsPostSkeleton from "@/components/layout/main/DetailsPostSkeleton";
 import DonateNowModal from "./DonateNowModal";
+import { Helmet } from "react-helmet-async";
 
 const DetailsReliefPost = () => {
   const { id } = useParams();
@@ -23,6 +24,9 @@ const DetailsReliefPost = () => {
 
   return (
     <>
+      <Helmet>
+        <title>{data.title} - Recover Ease</title>
+      </Helmet>
       <DetailReliefBreadcrumb title={data.title} />
       <section className="pb-10 pt-5">
         <Container>

@@ -3,11 +3,15 @@ import Footer from "@/components/layout/main/Footer";
 import Navbar from "@/components/layout/main/Navbar";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
     <>
+      <Helmet>
+        <title>404 - Recover Ease</title>
+      </Helmet>
       <Navbar />
       <section className="my-10 h-[80vh] flex justify-center items-center">
         <Container>
