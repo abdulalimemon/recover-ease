@@ -73,9 +73,11 @@ const DashboardNavbar = () => {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuGroup className="cursor-pointer">
-                <DropdownMenuItem className="cursor-pointer">
-                  <Link to="/dashboard/profile">Profile</Link>
-                </DropdownMenuItem>
+                <Link to="/dashboard/profile">
+                  <DropdownMenuItem className="cursor-pointer">
+                    Profile
+                  </DropdownMenuItem>
+                </Link>
                 <DropdownMenuItem className="cursor-pointer">
                   Settings
                 </DropdownMenuItem>

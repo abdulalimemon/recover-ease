@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Gallary from "./Gallary";
 import HeroHome from "./Hero.home";
 import HowUCanHelp from "./HowUCanHelp";
@@ -10,6 +11,9 @@ import WhoWeAre from "./WhoWeAre";
 const Home = () => {
   return (
     <>
+      <Helmet>
+        <title>Recover Ease</title>
+      </Helmet>
       <HeroHome />
       <ReliefGoodsPosts />
       <Testimonials />
