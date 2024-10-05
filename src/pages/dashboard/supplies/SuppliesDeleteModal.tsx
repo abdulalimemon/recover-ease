@@ -30,9 +30,7 @@ const SuppliesDeleteModal = ({ item }: { item: TAddSupplyInputs }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="bg-red-500 hover:bg-red-300">
-          <Trash2 className="size-5 text-white" />
-        </Button>
+        <Trash2 className="size-6 text-red-500 hover:text-red-700 lg:mr-3 mb-2 cursor-pointer" />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

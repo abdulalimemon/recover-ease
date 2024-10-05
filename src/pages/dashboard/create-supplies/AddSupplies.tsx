@@ -56,11 +56,48 @@ const AddSupplies = () => {
     }
   };
   return (
-    <div className="">
+    <div>
       <div className="h-full pb-10 lg:pb-5">
-        <div className="xl:mx-auto w-full xl:max-w-xl">
-          <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
-            <div className="space-y-5">
+        <div className="xl:mx-auto w-full  bg-slate-100 dark:bg-slate-900 p-5 rounded-md">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
+              <div>
+                <div className="flex items-center justify-between">
+                  <label htmlFor="title" className="text-base font-medium text">
+                    {" "}
+                    Title{" "}
+                  </label>
+                </div>
+                <div className="mt-2">
+                  <Input
+                    type="text"
+                    placeholder="Title"
+                    id="title"
+                    {...register("title", {
+                      required: {
+                        value: true,
+                        message: "Title is Required.",
+                      },
+                      minLength: {
+                        value: 8,
+                        message: "Title must be 8 characters or longer.",
+                      },
+                    })}
+                  />
+                </div>
+                <div className="pt-2">
+                  {errors.title?.type === "required" && (
+                    <span className="text-sm mt-2 text-red-600 font-semibold">
+                      {errors.title.message}
+                    </span>
+                  )}
+                  {errors.title?.type === "minLength" && (
+                    <span className="text-sm mt-2 text-red-600 font-semibold">
+                      {errors.title.message}
+                    </span>
+                  )}
+                </div>
+              </div>
               <div>
                 <label
                   htmlFor="imageUrl"
@@ -142,43 +179,7 @@ const AddSupplies = () => {
                   </div>
                 </div>
               </div>
-              <div>
-                <div className="flex items-center justify-between">
-                  <label htmlFor="title" className="text-base font-medium text">
-                    {" "}
-                    Title{" "}
-                  </label>
-                </div>
-                <div className="mt-2">
-                  <Input
-                    type="text"
-                    placeholder="Title"
-                    id="title"
-                    {...register("title", {
-                      required: {
-                        value: true,
-                        message: "Title is Required.",
-                      },
-                      minLength: {
-                        value: 8,
-                        message: "Title must be 8 characters or longer.",
-                      },
-                    })}
-                  />
-                </div>
-                <div className="pt-2">
-                  {errors.title?.type === "required" && (
-                    <span className="text-sm mt-2 text-red-600 font-semibold">
-                      {errors.title.message}
-                    </span>
-                  )}
-                  {errors.title?.type === "minLength" && (
-                    <span className="text-sm mt-2 text-red-600 font-semibold">
-                      {errors.title.message}
-                    </span>
-                  )}
-                </div>
-              </div>
+
               <div>
                 <div className="flex items-center justify-between">
                   <label
@@ -259,11 +260,10 @@ const AddSupplies = () => {
                   )}
                 </div>
               </div>
-              <div>
-                <Button className="w-full" type="submit">
-                  Add Supply Post <ArrowRight className="ml-2" size={16} />
-                </Button>
-              </div>
+              <div></div>
+              <Button className="w-full" type="submit">
+                Add Supply Post <ArrowRight className="ml-2" size={16} />
+              </Button>
             </div>
           </form>
         </div>

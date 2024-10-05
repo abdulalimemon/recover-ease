@@ -2,9 +2,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { userAuthContext } from "@/firebase/AuthProvider";
 import { useAddTestimonialMutation } from "@/redux/features/testimonial/testimonialApi";
 import { useAppSelector } from "@/redux/hooks";
 import { ArrowRight } from "lucide-react";
+import { useContext } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -25,22 +27,23 @@ const AddTestimonial = () => {
     reset,
   } = useForm<TTestimonialInputs>();
   const [testimonial] = useAddTestimonialMutation();
-  const user = useAppSelector((state) => state.auth.user);
+  const userInfo = useAppSelector((state) => state.auth.user);
+  const { user } = useContext(userAuthContext);
 
   const onSubmit: SubmitHandler<TTestimonialInputs> = async (
     data: FieldValues
   ) => {
     try {
-      const userInfo = {
-        name: user?.name,
-        email: user?.email,
+      const userData = {
+        name: userInfo?.name || user?.displayName,
+        email: userInfo?.email || user?.email,
         image: data.image,
         position: data.position,
         company: data.company,
         review: data.review,
       };
 
-      const res = await testimonial(userInfo).unwrap();
+      const res = await testimonial(userData).unwrap();
 
       toast(res.message, { description: "Thank You." });
       reset();
@@ -51,9 +54,9 @@ const AddTestimonial = () => {
   return (
     <div className="">
       <div className="h-full pb-10 lg:pb-5">
-        <div className="xl:mx-auto w-full xl:max-w-xl">
-          <form className="mt-8" onSubmit={handleSubmit(onSubmit)}>
-            <div className="space-y-5">
+        <div className="xl:mx-auto w-full bg-slate-100 dark:bg-slate-900 p-5 rounded-md">
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
               <div>
                 <Label htmlFor="name" className="text-base font-medium text">
                   Name
@@ -61,7 +64,7 @@ const AddTestimonial = () => {
                 <div className="mt-2">
                   <Input
                     type="text"
-                    placeholder={user?.name}
+                    placeholder={userInfo?.name || user?.displayName || ""}
                     readOnly
                     id="name"
                     {...register("name")}
@@ -75,7 +78,7 @@ const AddTestimonial = () => {
                 <div className="mt-2">
                   <Input
                     type="email"
-                    placeholder={user?.email}
+                    placeholder={userInfo?.email || user?.email || ""}
                     readOnly
                     id="email"
                     {...register("email")}
@@ -235,11 +238,11 @@ const AddTestimonial = () => {
                   )}
                 </div>
               </div>
-              <div>
-                <Button className="w-full" type="submit">
-                  Add Testimonial <ArrowRight className="ml-2" size={16} />
-                </Button>
-              </div>
+            </div>
+            <div>
+              <Button className="w-full md:w-1/2 my-3" type="submit">
+                Add Testimonial <ArrowRight className="ml-2" size={16} />
+              </Button>
             </div>
           </form>
         </div>

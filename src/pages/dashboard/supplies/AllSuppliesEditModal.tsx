@@ -62,9 +62,7 @@ const AllSuppliesEditModal = ({ item }: { item: TAddSupplyInputs }) => {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="bg-green-500 hover:bg-green-300 lg:mr-3 mb-2">
-          <SquarePen className="size-5 text-white" />
-        </Button>
+        <SquarePen className="size-6 text-green-500 hover:text-green-700 lg:mr-3 mb-2 cursor-pointer" />
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>

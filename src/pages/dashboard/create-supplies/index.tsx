@@ -8,7 +8,7 @@ const CreateSupplies = () => {
         <title>Create Supplies - Recover Ease</title>
       </Helmet>
       <div className="mb-10">
-        <h2 className="text-center text-xl font-semibold pt-5">
+        <h2 className="text-center text-xl font-semibold py-5">
           Create Supply.
         </h2>
         <AddSupplies />

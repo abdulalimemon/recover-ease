@@ -22,7 +22,7 @@ const AllSuppliesTable = () => {
             <TableHead>Title</TableHead>
             <TableHead>Category</TableHead>
             <TableHead>Amount</TableHead>
-            <TableHead></TableHead>
+            <TableHead>Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
