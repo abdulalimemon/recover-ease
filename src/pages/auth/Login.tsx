@@ -10,6 +10,7 @@ import { useAppDispatch } from "@/redux/hooks";
 import { setUser } from "@/redux/features/auth/authSlice";
 import { verifyToken } from "@/utils/verifyToken";
 import { Helmet } from "react-helmet-async";
+import SocialLogin from "./SocialLogin";
 
 export type TLoginInputs = {
   email: string;
@@ -160,6 +161,9 @@ const Login = () => {
                   </div>
                 </div>
               </form>
+              <div className="py-5">
+                <SocialLogin text="Sign in with Google" />
+              </div>
             </div>
           </div>
         </Container>

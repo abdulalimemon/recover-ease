@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
+import { userAuthContext } from "@/firebase/AuthProvider";
 import { logout, useCurrentToken } from "@/redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { X } from "lucide-react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 
 type ToggleMenuFunction = () => void;
@@ -13,9 +15,11 @@ interface MenuManager {
 const MobileNavbar = ({ toggleMenu }: MenuManager) => {
   const dispatch = useAppDispatch();
   const token = useAppSelector(useCurrentToken);
+  const { user, logOut } = useContext(userAuthContext);
 
   const handleLogOut = () => {
     dispatch(logout());
+    logOut();
   };
   return (
     <div
@@ -43,37 +47,32 @@ const MobileNavbar = ({ toggleMenu }: MenuManager) => {
           </div>
           <div className="mt-6 text-center">
             <nav className="grid gap-y-4">
-              {token && (
-                <Link to="/dashboard" className="decoration-none font-semibold">
-                  Dashboard
-                </Link>
-              )}
+              {token ||
+                (user && (
+                  <Link
+                    to="/dashboard"
+                    className="decoration-none font-semibold"
+                  >
+                    Dashboard
+                  </Link>
+                ))}
               <Link
                 to="/all-relief-goods"
                 className="decoration-none font-semibold"
               >
                 Relief Goods
               </Link>
-              <Link
-                to="/leaderboard"
-                className="decoration-none font-semibold"
-              >
+              <Link to="/leaderboard" className="decoration-none font-semibold">
                 Leaderboard
               </Link>
-              <Link
-                to="/community"
-                className="decoration-none font-semibold"
-              >
+              <Link to="/community" className="decoration-none font-semibold">
                 Community
               </Link>
-              <Link
-                to="/volunteer"
-                className="decoration-none font-semibold"
-              >
+              <Link to="/volunteer" className="decoration-none font-semibold">
                 Volunteer
               </Link>
             </nav>
-            {token ? (
+            {token || user ? (
               <Button className="mt-4 w-1/2 mx-auto" onClick={handleLogOut}>
                 Log Out
               </Button>

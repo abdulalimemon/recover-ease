@@ -1,13 +1,23 @@
+import { userAuthContext } from "@/firebase/AuthProvider";
 import { logout } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/hooks";
-import { BarChart, Wallet, ListPlus, LogIn, MessageSquareCode } from "lucide-react";
+import {
+  BarChart,
+  Wallet,
+  ListPlus,
+  LogIn,
+  MessageSquareCode,
+} from "lucide-react";
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const DashboardSidebar = () => {
   const dispatch = useAppDispatch();
+  const { logOut } = useContext(userAuthContext);
 
   const handleLogOut = () => {
     dispatch(logout());
+    logOut();
   };
   return (
     <div className="bg-[#010A1F] hidden lg:block">
@@ -65,7 +75,7 @@ const DashboardSidebar = () => {
               >
                 <MessageSquareCode className="h-5 w-5" aria-hidden="true" />
                 <span className="mx-2 text-sm font-medium">
-                Create Testimonial
+                  Create Testimonial
                 </span>
               </NavLink>
             </div>

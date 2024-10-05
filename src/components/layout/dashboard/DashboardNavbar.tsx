@@ -8,20 +8,24 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import user from "@/assets/img/user.png";
+import userPic from "@/assets/img/user.png";
 import { useTheme } from "@/components/theme-provider";
 import { Link } from "react-router-dom";
 import DashboardMobileNav from "./DashboardMobileNav";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useContext } from "react";
+import { userAuthContext } from "@/firebase/AuthProvider";
 import { logout } from "@/redux/features/auth/authSlice";
 
 const DashboardNavbar = () => {
   const { setTheme } = useTheme();
   const dispatch = useAppDispatch();
   const userInfo = useAppSelector((state) => state.auth.user);
+  const { user, logOut } = useContext(userAuthContext);
 
   const handleLogOut = () => {
     dispatch(logout());
+    logOut();
   };
   return (
     <div className="h-14 lg:h-16 border-b-2 bg-slate-100 dark:bg-slate-900 flex items-center justify-between px-5 lg:px-10">
@@ -61,15 +65,15 @@ const DashboardNavbar = () => {
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <img
-                src={user}
+                src={userPic}
                 className="size-8 lg:size-10 cursor-pointer"
                 alt="user"
               />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56 ">
               <DropdownMenuLabel className="text-center">
-                {userInfo?.name} <br />
-                {userInfo?.email}
+                {userInfo?.name || user?.displayName} <br />
+                {userInfo?.email || user?.email}
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuGroup className="cursor-pointer">

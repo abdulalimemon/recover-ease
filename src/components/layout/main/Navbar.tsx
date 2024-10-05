@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Container from "../Container";
 import { Menu, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,12 +7,14 @@ import { useTheme } from "@/components/theme-provider";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logout, useCurrentToken } from "@/redux/features/auth/authSlice";
+import { userAuthContext } from "@/firebase/AuthProvider";
 
 const Navbar = () => {
   const { setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const token = useAppSelector(useCurrentToken);
   const dispatch = useAppDispatch();
+  const { user, logOut } = useContext(userAuthContext);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -20,7 +22,9 @@ const Navbar = () => {
 
   const handleLogOut = () => {
     dispatch(logout());
+    logOut();
   };
+
   return (
     <header className="relative w-full border-b-2 h-14 flex justify-center items-center">
       <Container>
@@ -33,7 +37,7 @@ const Navbar = () => {
 
           <div className="hidden lg:block">
             <ul className="inline-flex justify-center items-center space-x-8">
-              {token && (
+              {(token || user) && (
                 <li>
                   <Link
                     to="/dashboard"
@@ -80,7 +84,7 @@ const Navbar = () => {
                 />
               </li>
               <li>
-                {token ? (
+                {token || user ? (
                   <Button onClick={handleLogOut}>Log Out</Button>
                 ) : (
                   <Link to="/login">

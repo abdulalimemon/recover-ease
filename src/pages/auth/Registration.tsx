@@ -7,6 +7,7 @@ import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 import { useSigninMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
 import { Helmet } from "react-helmet-async";
+import SocialLogin from "./SocialLogin";
 
 export type TRegisterInputs = {
   name: string;
@@ -51,7 +52,7 @@ const Registration = () => {
       <Helmet>
         <title>Registration - Recover Ease</title>
       </Helmet>
-      <section className="py-28 lg:py-20 w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
+      <section className="py-16 lg:py-10 w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <Container className="py-16 md:py-0">
           <div className="flex h-full items-center justify-center py-10 6 sm:py-16 lg:py-24">
@@ -188,6 +189,9 @@ const Registration = () => {
                   </div>
                 </div>
               </form>
+              <div className="py-5">
+                <SocialLogin text="Sign up with Google" />
+              </div>
             </div>
           </div>
         </Container>
