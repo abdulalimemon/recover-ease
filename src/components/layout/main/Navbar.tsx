@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import Container from "../Container";
 import { Menu, Moon, Sun } from "lucide-react";
 import { Button } from "@/components/ui/button";
