@@ -36,7 +36,7 @@ const Footer = () => {
 
           <div className="flex flex-col gap-5 items-center sm:flex-row sm:justify-between">
             <p className="text-base font-semibold text">
-              © {year} All rights reserved.
+              © {year} All rights reserved by Recover Ease.
             </p>
 
             <div className="flex -mx-2 space-x-5">

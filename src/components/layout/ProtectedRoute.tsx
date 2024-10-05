@@ -3,16 +3,20 @@ import { useCurrentToken } from "@/redux/features/auth/authSlice";
 import { useAppSelector } from "@/redux/hooks";
 import { ReactNode, useContext } from "react";
 import { Navigate } from "react-router-dom";
+import Loading from "./Loading";
 
 const ProtectedRoute = ({ children }: { children: ReactNode }) => {
   const token = useAppSelector(useCurrentToken);
-  const { user } = useContext(userAuthContext);
+  const { loading, user } = useContext(userAuthContext);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   if (user) {
     return children;
   }
-
-  if (!token) {
+  if (!user && !token) {
     return <Navigate to="/login" replace={true} />;
   }
 

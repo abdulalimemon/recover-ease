@@ -1,10 +1,13 @@
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { userAuthContext } from "@/firebase/AuthProvider";
 import { useAppSelector } from "@/redux/hooks";
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 
 const Profile = () => {
   const userInfo = useAppSelector((state) => state.auth.user);
+  const { user } = useContext(userAuthContext);
   return (
     <div>
       <Helmet>
@@ -17,13 +20,18 @@ const Profile = () => {
         <form className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
           <div>
             <Label htmlFor="name">Name</Label>
-            <Input id="name" value={userInfo?.name} readOnly className="mt-3" />
+            <Input
+              id="name"
+              value={userInfo?.name || user?.displayName || ""}
+              readOnly
+              className="mt-3"
+            />
           </div>
           <div>
             <Label htmlFor="email">Email</Label>
             <Input
               id="email"
-              value={userInfo?.email}
+              value={userInfo?.email || user?.email || ""}
               readOnly
               className="mt-3"
             />

@@ -20,7 +20,6 @@ const SocialLogin = ({ text }: Text) => {
 
   const from = location.state?.from?.pathname || "/dashboard";
 
-  // Check if authContext is null before accessing its properties
   const handleGoogleSignIn = () => {
     if (!authContext) {
       console.error("Auth context is not available.");
