@@ -95,7 +95,7 @@ const Gallary = () => {
                     <img
                       src={artwork.src}
                       alt={`Photo by ${artwork.description}`}
-                      className="aspect-[3/4] object-cover"
+                      className="aspect-[3/4] object-cover cursor-pointer"
                       width={300}
                       height={400}
                       onClick={() => setIndex(index)}
