@@ -53,7 +53,7 @@ const Login = () => {
       <Helmet>
         <title>Login - Recover Ease</title>
       </Helmet>
-      <section className="py-28 lg:py-20 w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
+      <section className="py-14 lg:py-7 w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <Container className="py-16 md:py-0">
           <div className="flex items-center h-full justify-center py-10 sm:py-16 lg:py-24">
@@ -165,6 +165,11 @@ const Login = () => {
                 <SocialLogin text="Sign in with Google" />
               </div>
             </div>
+          </div>
+          <div className="px-10 py-5 bg-black text-white rounded-md">
+            <p>Demo User Info</p>
+            <p>Email : abdulalimemon11@gmail.com</p>
+            <p>Password: 12345678</p>
           </div>
         </Container>
       </section>
