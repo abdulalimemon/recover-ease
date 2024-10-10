@@ -10,9 +10,7 @@ const Footer = () => {
       <Container>
         <div className="flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
           <div className="lg:w-1/4">
-            <p className="font-bold text-xl">
-              Recover <span className="text-red-500">Ease</span>
-            </p>
+            <p className="font-bold text-xl text-gradient">Recover Ease</p>
             <p className="mt-3 text-sm">
               Helping those in need, when they need it most. Our mission is to
               ensure fast, organized relief efforts to deliver essential

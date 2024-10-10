@@ -1,13 +1,23 @@
 import { useContext, useState } from "react";
 import Container from "../Container";
 import { Menu, Moon, Sun } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import userPic from "@/assets/img/user.png";
 import MobileNavbar from "./MobileNavbar";
 import { useTheme } from "@/components/theme-provider";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { logout, useCurrentToken } from "@/redux/features/auth/authSlice";
 import { userAuthContext } from "@/firebase/AuthProvider";
+import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const { setTheme } = useTheme();
@@ -15,6 +25,7 @@ const Navbar = () => {
   const token = useAppSelector(useCurrentToken);
   const dispatch = useAppDispatch();
   const { user, logOut } = useContext(userAuthContext);
+  const userInfo = useAppSelector((state) => state.auth.user);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -30,23 +41,13 @@ const Navbar = () => {
       <Container>
         <div className="flex items-center justify-between py-2">
           <div className="inline-flex items-center space-x-2">
-            <Link to="/" className="font-bold text-lg">
-              Recover <span className="text-red-500">Ease</span>
+            <Link to="/" className="font-bold text-lg text-gradient">
+              Recover Ease
             </Link>
           </div>
 
           <div className="hidden lg:block">
             <ul className="inline-flex justify-center items-center space-x-8">
-              {(token || user) && (
-                <li>
-                  <Link
-                    to="/dashboard"
-                    className="decoration-none font-semibold"
-                  >
-                    Dashboard
-                  </Link>
-                </li>
-              )}
               <li>
                 <Link
                   to="/all-relief-goods"
@@ -83,9 +84,40 @@ const Navbar = () => {
                   onClick={() => setTheme("light")}
                 />
               </li>
+
               <li>
                 {token || user ? (
-                  <Button onClick={handleLogOut}>Log Out</Button>
+                  <div>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <img
+                          src={userPic}
+                          className="size-8 cursor-pointer"
+                          alt="user"
+                        />
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent className="w-56 ">
+                        <DropdownMenuLabel className="text-center">
+                          {userInfo?.name || user?.displayName} <br />
+                          {userInfo?.email || user?.email}
+                        </DropdownMenuLabel>
+                        <DropdownMenuSeparator />
+                        <DropdownMenuGroup className="cursor-pointer">
+                          <Link to="/dashboard">
+                            <DropdownMenuItem className="cursor-pointer">
+                              Dashboard
+                            </DropdownMenuItem>
+                          </Link>
+                        </DropdownMenuGroup>
+                        <DropdownMenuItem
+                          onClick={handleLogOut}
+                          className="cursor-pointer"
+                        >
+                          Log out
+                        </DropdownMenuItem>
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
                 ) : (
                   <Link to="/login">
                     <Button>Login</Button>

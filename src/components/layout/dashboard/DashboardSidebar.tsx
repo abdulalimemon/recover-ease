@@ -1,6 +1,6 @@
 import { userAuthContext } from "@/firebase/AuthProvider";
 import { logout } from "@/redux/features/auth/authSlice";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import {
   BarChart,
   Wallet,
@@ -14,6 +14,7 @@ import { Link, NavLink } from "react-router-dom";
 const DashboardSidebar = () => {
   const dispatch = useAppDispatch();
   const { logOut } = useContext(userAuthContext);
+  const userInfo = useAppSelector((state) => state.auth.user);
 
   const handleLogOut = () => {
     dispatch(logout());
@@ -52,19 +53,23 @@ const DashboardSidebar = () => {
                 <Wallet className="h-5 w-5" aria-hidden="true" />
                 <span className="mx-2 text-sm font-medium">Supplies</span>
               </NavLink>
-              <NavLink
-                className={({ isActive }) =>
-                  isActive
-                    ? "DashboardNavLink bg-gray-100 text-gray-700"
-                    : "DashboardNavLink"
-                }
-                to="/dashboard/create-supplies"
-              >
-                <ListPlus className="h-5 w-5" aria-hidden="true" />
-                <span className="mx-2 text-sm font-medium">
-                  Create Supplies
-                </span>
-              </NavLink>
+              {userInfo?.role === "admin" && (
+                <>
+                  <NavLink
+                    className={({ isActive }) =>
+                      isActive
+                        ? "DashboardNavLink bg-gray-100 text-gray-700"
+                        : "DashboardNavLink"
+                    }
+                    to="/dashboard/create-supplies"
+                  >
+                    <ListPlus className="h-5 w-5" aria-hidden="true" />
+                    <span className="mx-2 text-sm font-medium">
+                      Create Supplies
+                    </span>
+                  </NavLink>
+                </>
+              )}
               <NavLink
                 className={({ isActive }) =>
                   isActive

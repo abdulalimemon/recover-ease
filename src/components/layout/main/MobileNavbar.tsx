@@ -47,11 +47,6 @@ const MobileNavbar = ({ toggleMenu }: MenuManager) => {
           </div>
           <div className="mt-6 text-center">
             <nav className="grid gap-y-4">
-              {(token || user) && (
-                <Link to="/dashboard" className="decoration-none font-semibold">
-                  Dashboard
-                </Link>
-              )}
               <Link
                 to="/all-relief-goods"
                 className="decoration-none font-semibold"
@@ -67,6 +62,11 @@ const MobileNavbar = ({ toggleMenu }: MenuManager) => {
               <Link to="/volunteer" className="decoration-none font-semibold">
                 Volunteer
               </Link>
+              {(token || user) && (
+                <Link to="/dashboard" className="decoration-none font-semibold">
+                  Dashboard
+                </Link>
+              )}
             </nav>
             {token || user ? (
               <Button className="mt-4 w-1/2 mx-auto" onClick={handleLogOut}>
