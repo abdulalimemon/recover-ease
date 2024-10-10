@@ -1,11 +1,17 @@
 import { userAuthContext } from "@/firebase/AuthProvider";
 import { logout } from "@/redux/features/auth/authSlice";
 import { useAppDispatch } from "@/redux/hooks";
-import { BarChart, Wallet, LogIn, MessageSquareCode } from "lucide-react";
+import {
+  BarChart,
+  Wallet,
+  ListPlus,
+  LogIn,
+  MessageSquareCode,
+} from "lucide-react";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-const DashboardSidebar = () => {
+const AdminSidebar = () => {
   const dispatch = useAppDispatch();
   const { logOut } = useContext(userAuthContext);
 
@@ -30,7 +36,7 @@ const DashboardSidebar = () => {
                     ? "DashboardNavLink bg-gray-100 text-gray-700"
                     : "DashboardNavLink"
                 }
-                to="/dashboard/home"
+                to="/admin/home"
               >
                 <BarChart className="h-5 w-5" aria-hidden="true" />
                 <span className="mx-2 text-sm font-medium">Dashboard</span>
@@ -41,7 +47,7 @@ const DashboardSidebar = () => {
                     ? "DashboardNavLink bg-gray-100 text-gray-700"
                     : "DashboardNavLink"
                 }
-                to="/dashboard/supplies"
+                to="/admin/supplies"
               >
                 <Wallet className="h-5 w-5" aria-hidden="true" />
                 <span className="mx-2 text-sm font-medium">Supplies</span>
@@ -53,12 +59,24 @@ const DashboardSidebar = () => {
                     ? "DashboardNavLink bg-gray-100 text-gray-700"
                     : "DashboardNavLink"
                 }
-                to="/dashboard/create-testimonial"
+                to="/admin/create-supplies"
+              >
+                <ListPlus className="h-5 w-5" aria-hidden="true" />
+                <span className="mx-2 text-sm font-medium">
+                  Create Supplies
+                </span>
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "DashboardNavLink bg-gray-100 text-gray-700"
+                    : "DashboardNavLink"
+                }
+                to="/admin/testimonial"
               >
                 <MessageSquareCode className="h-5 w-5" aria-hidden="true" />
-                <span className="mx-2 text-sm font-medium">
-                  Create Testimonial
-                </span>
+                <span className="mx-2 text-sm font-medium">Testimonial</span>
               </NavLink>
             </div>
           </nav>
@@ -79,4 +97,4 @@ const DashboardSidebar = () => {
   );
 };
 
-export default DashboardSidebar;
+export default AdminSidebar;

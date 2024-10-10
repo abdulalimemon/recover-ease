@@ -19,6 +19,8 @@ import Testimonial from "@/pages/dashboard/testimonial";
 import AboutUs from "@/pages/about-us";
 import ContactUs from "@/pages/contact-us";
 import Profile from "@/pages/dashboard/profile";
+import RequireAdmin from "./RequireAdmin";
+import AdminLayout from "@/components/layout/admin/AdminLayout";
 
 const router = createBrowserRouter([
   {
@@ -92,16 +94,42 @@ const router = createBrowserRouter([
         element: <Dashboard />,
       },
       {
-        path: "create-supplies",
-        element: <CreateSupplies />,
-      },
-      {
         path: "profile",
         element: <Profile />,
       },
       {
         path: "create-testimonial",
         element: <Testimonial />,
+      },
+    ],
+  },
+  {
+    path: "/admin",
+    element: (
+      <RequireAdmin>
+        <AdminLayout />
+      </RequireAdmin>
+    ),
+    children: [
+      {
+        index: true,
+        element: <Navigate to="/admin/home" />,
+      },
+      {
+        path: "supplies",
+        element: <Supplies />,
+      },
+      {
+        path: "/admin/home",
+        element: <Dashboard />,
+      },
+      {
+        path: "create-supplies",
+        element: <CreateSupplies />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
     ],
   },

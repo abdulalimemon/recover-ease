@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useLoginMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
-import { useAppDispatch } from "@/redux/hooks";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setUser } from "@/redux/features/auth/authSlice";
 import { verifyToken } from "@/utils/verifyToken";
 import { Helmet } from "react-helmet-async";
@@ -26,6 +26,7 @@ const Login = () => {
   const [login] = useLoginMutation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const userData = useAppSelector((state) => state.auth.user);
 
   const onSubmit: SubmitHandler<TLoginInputs> = async (data) => {
     try {
@@ -40,6 +41,12 @@ const Login = () => {
       dispatch(setUser({ user: user, token: res.token }));
       toast(res.message);
 
+      console.log(userData);
+
+      if (userData?.role === "admin") {
+        console.log("hello");
+        navigate("/admin");
+      }
       navigate("/dashboard");
     } catch (error) {
       toast((error as any)?.data?.message, {

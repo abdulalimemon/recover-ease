@@ -1,8 +1,15 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { BarChart, Wallet, Menu, X, MessageSquareCode } from "lucide-react";
+import {
+  BarChart,
+  Wallet,
+  ListPlus,
+  Menu,
+  X,
+  MessageSquareCode,
+} from "lucide-react";
 
-const DashboardMobileNav = () => {
+const AdminMobileNav = () => {
   const [showSidebar, setShowSidebar] = useState(false);
 
   return (
@@ -41,7 +48,7 @@ const DashboardMobileNav = () => {
                           ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
                           : "DashboardNavMobile"
                       }
-                      to="/dashboard/home"
+                      to="/admin/home"
                     >
                       <BarChart className="h-5 w-5" aria-hidden="true" />
                       <span className="mx-2 text-sm font-medium">
@@ -54,7 +61,7 @@ const DashboardMobileNav = () => {
                           ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
                           : "DashboardNavMobile"
                       }
-                      to="/dashboard/supplies"
+                      to="/admin/supplies"
                     >
                       <Wallet className="h-5 w-5" aria-hidden="true" />
                       <span className="mx-2 text-sm font-medium">Supplies</span>
@@ -65,7 +72,20 @@ const DashboardMobileNav = () => {
                           ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
                           : "DashboardNavMobile"
                       }
-                      to="/dashboard/create-testimonial"
+                      to="/admin/create-supplies"
+                    >
+                      <ListPlus className="h-5 w-5" aria-hidden="true" />
+                      <span className="mx-2 text-sm font-medium">
+                        Create Supplies
+                      </span>
+                    </NavLink>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
+                          : "DashboardNavMobile"
+                      }
+                      to="/admin/create-testimonial"
                     >
                       <MessageSquareCode
                         className="h-5 w-5"
@@ -86,4 +106,4 @@ const DashboardMobileNav = () => {
   );
 };
 
-export default DashboardMobileNav;
+export default AdminMobileNav;

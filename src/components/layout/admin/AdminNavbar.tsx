@@ -11,13 +11,13 @@ import {
 import userPic from "@/assets/img/user.png";
 import { useTheme } from "@/components/theme-provider";
 import { Link } from "react-router-dom";
-import DashboardMobileNav from "./DashboardMobileNav";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { useContext } from "react";
 import { userAuthContext } from "@/firebase/AuthProvider";
 import { logout } from "@/redux/features/auth/authSlice";
+import AdminMobileNav from "./AdminMobileNav";
 
-const DashboardNavbar = () => {
+const AdminNavbar = () => {
   const { setTheme } = useTheme();
   const dispatch = useAppDispatch();
   const userInfo = useAppSelector((state) => state.auth.user);
@@ -43,7 +43,7 @@ const DashboardNavbar = () => {
         />
       </div>
       <div className="lg:hidden flex items-center justify-center">
-        <DashboardMobileNav />
+        <AdminMobileNav />
         <div className="">
           <Link to="/" className="font-bold text-lg">
             Recover <span className="text-red-500">Ease</span>
@@ -51,7 +51,9 @@ const DashboardNavbar = () => {
         </div>
       </div>
       <div className="flex justify-center items-center">
-          <Link to="/" className="font-semibold mr-5">Home</Link>
+        <Link to="/" className="font-semibold mr-5">
+          Home
+        </Link>
         <div>
           <div className="size-5 mr-4">
             <Sun
@@ -80,7 +82,7 @@ const DashboardNavbar = () => {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuGroup className="cursor-pointer">
-                <Link to="/dashboard/profile">
+                <Link to="/admin/profile">
                   <DropdownMenuItem className="cursor-pointer">
                     Profile
                   </DropdownMenuItem>
@@ -103,4 +105,4 @@ const DashboardNavbar = () => {
   );
 };
 
-export default DashboardNavbar;
+export default AdminNavbar;
