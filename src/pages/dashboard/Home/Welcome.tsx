@@ -10,7 +10,7 @@ const Welcome = () => {
     <section>
       <div className="bg-gray-200 dark:bg-slate-800 rounded-md flex flex-col lg:flex-row items-center justify-between p-5 h-full lg:h-40">
         <div>
-          <p className="text-green-600 font-semibold">
+          <p className="text-gradient font-semibold">
             Hey, {userInfo?.name || user?.displayName}
           </p>
           <h2 className="text-2xl lg:text-4xl font-bold text">

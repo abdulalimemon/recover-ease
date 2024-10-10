@@ -6,22 +6,22 @@ const ctaContent = [
     id: 1,
     title: "Organizations",
     content: `List your available relief goods and collaborate with us to ensure efficient distribution.`,
-    bg: "bg-[#FEEBD6] border-[#FEEBD6]",
-    icon: <Building className="size-10 dark:text-red-900" />,
+    bg: "bg-red-100",
+    icon: <Building className="size-8 dark:text-red-900" />,
   },
   {
     id: 2,
     title: "Volunteers",
     content: `Offer your time and skills to support relief efforts on the ground or remotely.`,
-    bg: "bg-[#9CDAB6] border-[#9CDAB6]",
-    icon: <HandHeart className="size-10 dark:text-red-900" />,
+    bg: "bg-red-100",
+    icon: <HandHeart className="size-8 dark:text-red-900" />,
   },
   {
     id: 3,
     title: "Donors",
     content: `Make a direct impact by contributing to ongoing relief initiatives.`,
-    bg: "bg-[#FFB2A8] border-[#FFB2A8]",
-    icon: <HandHelping className="size-10 dark:text-red-900" />,
+    bg: "bg-red-100",
+    icon: <HandHelping className="size-8 dark:text-red-900" />,
   },
 ];
 
@@ -43,14 +43,14 @@ const HowUCanHelp = () => {
           {ctaContent.map((item) => (
             <div
               key={item.id}
-              className={`flex items-start w-full p-5 pb-3 border shadow-md rounded-lg ${item.bg}`}
+              className={`flex items-start w-full p-5 border shadow-md rounded-lg gap-5 ${item.bg}`}
             >
-              {item.icon}
-              <div className="ml-5">
+              <div className="mt-2">{item.icon}</div>
+              <div>
                 <h2 className="text-2xl font-semibold text-black">
                   {item.title}
                 </h2>
-                <p className="mt-4 mb-8 text-base text-gray-800 font-medium ">
+                <p className="mt-4 text-base text-gray-800 font-medium ">
                   {item.content}
                 </p>
               </div>

@@ -27,8 +27,6 @@ const AdminNavbar = () => {
     dispatch(logout());
     logOut();
   };
-
-  console.log(userInfo);
   return (
     <div className="h-14 lg:h-16 border-b-2 bg-slate-100 dark:bg-slate-900 flex items-center justify-end px-5 lg:px-10">
       <div className="relative hidden">

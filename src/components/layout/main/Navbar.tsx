@@ -15,14 +15,13 @@ import MobileNavbar from "./MobileNavbar";
 import { useTheme } from "@/components/theme-provider";
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import { logout, useCurrentToken } from "@/redux/features/auth/authSlice";
+import { logout } from "@/redux/features/auth/authSlice";
 import { userAuthContext } from "@/firebase/AuthProvider";
 import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   const { setTheme } = useTheme();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const token = useAppSelector(useCurrentToken);
   const dispatch = useAppDispatch();
   const { user, logOut } = useContext(userAuthContext);
   const userInfo = useAppSelector((state) => state.auth.user);
@@ -86,7 +85,7 @@ const Navbar = () => {
               </li>
 
               <li>
-                {token || user ? (
+                {userInfo || user ? (
                   <div>
                     <DropdownMenu>
                       <DropdownMenuTrigger asChild>
@@ -103,11 +102,19 @@ const Navbar = () => {
                         </DropdownMenuLabel>
                         <DropdownMenuSeparator />
                         <DropdownMenuGroup className="cursor-pointer">
-                          <Link to="/dashboard">
-                            <DropdownMenuItem className="cursor-pointer">
-                              Dashboard
-                            </DropdownMenuItem>
-                          </Link>
+                          {userInfo?.role === "admin" ? (
+                            <Link to="/admin">
+                              <DropdownMenuItem className="cursor-pointer">
+                                Dashboard
+                              </DropdownMenuItem>
+                            </Link>
+                          ) : (
+                            <Link to="/dashboard">
+                              <DropdownMenuItem className="cursor-pointer">
+                                Dashboard
+                              </DropdownMenuItem>
+                            </Link>
+                          )}
                         </DropdownMenuGroup>
                         <DropdownMenuItem
                           onClick={handleLogOut}

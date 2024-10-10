@@ -17,7 +17,7 @@ const RequireAdmin = ({ children }: any) => {
   if (userInfo?.role !== "admin") {
     dispatch(logout());
     logOut();
-    return <Navigate to="*" />;
+    return <Navigate to="/login" replace={true} />;
   }
 
   return children;
