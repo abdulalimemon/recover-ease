@@ -8,21 +8,19 @@ import {
 } from "@/components/ui/table";
 import { TAddSupplyInputs } from "@/pages/dashboard/create-supplies/AddSupplies";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
-import { useGetSupplyQuery } from "@/redux/features/reliefGoods/supplyApi";
-import { useAppSelector } from "@/redux/hooks";
+import { useAllReliefGoodsQuery } from "@/redux/features/reliefGoods/reliefGoodsApi";
 
 const AllReliefGoodsTable = () => {
-  const { data, isLoading, isError } = useGetSupplyQuery(null);
-  const userInfo = useAppSelector((state) => state.auth.user);
+  const { data, isLoading, isError } = useAllReliefGoodsQuery(null);
   return (
-    <div className="lg:px-10 my-10 ">
+    <div className="lg:px-10 mb-10 ">
       <Table>
         <TableHeader>
           <TableRow>
             <TableHead>Title</TableHead>
             <TableHead>Category</TableHead>
+            <TableHead>Description</TableHead>
             <TableHead>Amount</TableHead>
-            {userInfo?.role === "admin" && <TableHead>Action</TableHead>}
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -41,12 +39,11 @@ const AllReliefGoodsTable = () => {
             <TableRow key={item._id}>
               <TableCell className="font-medium">{item.title}</TableCell>
               <TableCell>{item.category}</TableCell>
+              <TableCell>
+                <span className="hidden md:block">{item.description}</span>
+                <span className="md:hidden">hidden for small screen.</span>
+              </TableCell>
               <TableCell>{item.amount}</TableCell>
-              {userInfo?.role === "admin" && (
-                <TableCell className="text-right w-[100px] lg:w-[200px] ">
-                  <div className="flex flex-col lg:flex-row"></div>
-                </TableCell>
-              )}
             </TableRow>
           ))}
         </TableBody>

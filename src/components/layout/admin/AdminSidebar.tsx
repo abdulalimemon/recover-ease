@@ -7,6 +7,11 @@ import {
   ListPlus,
   LogIn,
   MessageSquareCode,
+  Users,
+  BookUser,
+  HandCoins,
+  Newspaper,
+  MessageSquareQuote,
 } from "lucide-react";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -50,10 +55,34 @@ const AdminSidebar = () => {
                     ? "DashboardNavLink bg-gray-100 text-gray-700"
                     : "DashboardNavLink"
                 }
+                to="/admin/user"
+              >
+                <Users className="h-5 w-5" aria-hidden="true" />
+                <span className="mx-2 text-sm font-medium">Users</span>
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "DashboardNavLink bg-gray-100 text-gray-700"
+                    : "DashboardNavLink"
+                }
                 to="/admin/supplies"
               >
                 <Wallet className="h-5 w-5" aria-hidden="true" />
                 <span className="mx-2 text-sm font-medium">Supplies</span>
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "DashboardNavLink bg-gray-100 text-gray-700"
+                    : "DashboardNavLink"
+                }
+                to="/admin/relief-goods"
+              >
+                <Newspaper className="h-5 w-5" aria-hidden="true" />
+                <span className="mx-2 text-sm font-medium">Relief Goods</span>
               </NavLink>
 
               <NavLink
@@ -76,10 +105,46 @@ const AdminSidebar = () => {
                     ? "DashboardNavLink bg-gray-100 text-gray-700"
                     : "DashboardNavLink"
                 }
-                to="/admin/testimonial"
+                to="/admin/volunteer"
+              >
+                <BookUser className="h-5 w-5" aria-hidden="true" />
+                <span className="mx-2 text-sm font-medium">Volunteer</span>
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "DashboardNavLink bg-gray-100 text-gray-700"
+                    : "DashboardNavLink"
+                }
+                to="/admin/donations"
+              >
+                <HandCoins className="h-5 w-5" aria-hidden="true" />
+                <span className="mx-2 text-sm font-medium">Donations</span>
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "DashboardNavLink bg-gray-100 text-gray-700"
+                    : "DashboardNavLink"
+                }
+                to="/admin/comments"
+              >
+                <MessageSquareQuote className="h-5 w-5" aria-hidden="true" />
+                <span className="mx-2 text-sm font-medium">Comments</span>
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "DashboardNavLink bg-gray-100 text-gray-700"
+                    : "DashboardNavLink"
+                }
+                to="/admin/review"
               >
                 <MessageSquareCode className="h-5 w-5" aria-hidden="true" />
-                <span className="mx-2 text-sm font-medium">Testimonial</span>
+                <span className="mx-2 text-sm font-medium">Review</span>
               </NavLink>
             </div>
           </nav>

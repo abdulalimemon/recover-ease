@@ -88,7 +88,7 @@ const AdminMobileNav = () => {
                           ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
                           : "DashboardNavMobile"
                       }
-                      to="/admin/testimonial"
+                      to="/admin/review"
                       onClick={() => setShowSidebar(!showSidebar)}
                     >
                       <MessageSquareCode
@@ -96,7 +96,7 @@ const AdminMobileNav = () => {
                         aria-hidden="true"
                       />
                       <span className="mx-2 text-sm font-medium">
-                        Create Testimonial
+                        Review
                       </span>
                     </NavLink>
                   </div>

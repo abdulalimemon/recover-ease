@@ -56,12 +56,10 @@ const DashboardSidebar = () => {
                     ? "DashboardNavLink bg-gray-100 text-gray-700"
                     : "DashboardNavLink"
                 }
-                to="/dashboard/create-testimonial"
+                to="/dashboard/review"
               >
                 <MessageSquareCode className="h-5 w-5" aria-hidden="true" />
-                <span className="mx-2 text-sm font-medium">
-                  Create Testimonial
-                </span>
+                <span className="mx-2 text-sm font-medium">Review</span>
               </NavLink>
             </div>
           </nav>

@@ -67,7 +67,7 @@ const DashboardMobileNav = () => {
                           ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
                           : "DashboardNavMobile"
                       }
-                      to="/dashboard/create-testimonial"
+                      to="/dashboard/review"
                       onClick={() => setShowSidebar(!showSidebar)}
                     >
                       <MessageSquareCode
@@ -75,7 +75,7 @@ const DashboardMobileNav = () => {
                         aria-hidden="true"
                       />
                       <span className="mx-2 text-sm font-medium">
-                        Create Testimonial
+                        Review
                       </span>
                     </NavLink>
                   </div>

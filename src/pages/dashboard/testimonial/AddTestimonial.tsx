@@ -241,7 +241,7 @@ const AddTestimonial = () => {
             </div>
             <div>
               <Button className="w-full md:w-1/2 my-3" type="submit">
-                Add Testimonial <ArrowRight className="ml-2" size={16} />
+                Add Review <ArrowRight className="ml-2" size={16} />
               </Button>
             </div>
           </form>

@@ -22,6 +22,11 @@ import RequireAdmin from "./RequireAdmin";
 import AdminLayout from "@/components/layout/admin/AdminLayout";
 import AllTestimonial from "@/pages/admin/testimonial";
 import CreateTestimonial from "@/pages/dashboard/testimonial";
+import AllVolunteer from "@/pages/admin/volunteer";
+import User from "@/pages/admin/user";
+import ReliefGoods from "@/pages/admin/relief-goods";
+import Donations from "@/pages/admin/donations";
+import Comments from "@/pages/admin/comments";
 
 const router = createBrowserRouter([
   {
@@ -99,7 +104,7 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
-        path: "create-testimonial",
+        path: "review",
         element: <CreateTestimonial />,
       },
     ],
@@ -129,12 +134,32 @@ const router = createBrowserRouter([
         element: <CreateSupplies />,
       },
       {
-        path: "testimonial",
+        path: "review",
         element: <AllTestimonial />,
       },
       {
         path: "profile",
         element: <Profile />,
+      },
+      {
+        path: "volunteer",
+        element: <AllVolunteer />,
+      },
+      {
+        path: "user",
+        element: <User />,
+      },
+      {
+        path: "relief-goods",
+        element: <ReliefGoods />,
+      },
+      {
+        path: "donations",
+        element: <Donations />,
+      },
+      {
+        path: "comments",
+        element: <Comments />,
       },
     ],
   },
