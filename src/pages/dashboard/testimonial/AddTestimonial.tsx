@@ -10,7 +10,7 @@ import { useContext } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
-type TTestimonialInputs = {
+export type TTestimonialInputs = {
   name: string;
   email: string;
   image: string;

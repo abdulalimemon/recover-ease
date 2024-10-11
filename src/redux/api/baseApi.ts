@@ -18,5 +18,6 @@ export const baseApi = createApi({
     "user",
     "subscribe",
     "contact",
+    "review"
   ],
 });

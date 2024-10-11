@@ -6,20 +6,23 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { TAddSupplyInputs } from "@/pages/dashboard/create-supplies/AddSupplies";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
-import { useGetSupplyQuery } from "@/redux/features/reliefGoods/supplyApi";
+import { TTestimonialInputs } from "@/pages/dashboard/testimonial/AddTestimonial";
+import { useGetTestimonialQuery } from "@/redux/features/testimonial/testimonialApi";
 
 const AllTestimonialTable = () => {
-  const { data, isLoading, isError } = useGetSupplyQuery(null);
+  const { data, isLoading, isError } = useGetTestimonialQuery(null);
   return (
-    <div className="lg:px-10 my-10 ">
+    <div className="lg:px-10 mb-10 mt-5">
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Title</TableHead>
-            <TableHead>Category</TableHead>
-            <TableHead>Amount</TableHead>
+            <TableHead>Image</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead>Email</TableHead>
+            <TableHead>Position</TableHead>
+            <TableHead>Company</TableHead>
+            <TableHead>Review</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -34,11 +37,20 @@ const AllTestimonialTable = () => {
               <TableSkeleton />
             </>
           )}
-          {data?.map((item: TAddSupplyInputs) => (
-            <TableRow key={item._id}>
-              <TableCell className="font-medium">{item.title}</TableCell>
-              <TableCell>{item.category}</TableCell>
-              <TableCell>{item.amount}</TableCell>
+          {data?.map((item: TTestimonialInputs) => (
+            <TableRow key={item.name}>
+              <TableCell>
+                <img
+                  alt={item.name}
+                  className="self-center flex-shrink-0 size-10 mb-4 bg-center bg-cover rounded-full "
+                  src={item.image}
+                />
+              </TableCell>
+              <TableCell>{item.name}</TableCell>
+              <TableCell>{item.email}</TableCell>
+              <TableCell>{item.position}</TableCell>
+              <TableCell>{item.company}</TableCell>
+              <TableCell>{item.review}</TableCell>
             </TableRow>
           ))}
         </TableBody>
