@@ -12,6 +12,8 @@ import {
   HandCoins,
   Newspaper,
   MessageSquareQuote,
+  Mail,
+  Podcast,
 } from "lucide-react";
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
@@ -59,6 +61,30 @@ const AdminSidebar = () => {
               >
                 <Users className="h-5 w-5" aria-hidden="true" />
                 <span className="mx-2 text-sm font-medium">Users</span>
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "DashboardNavLink bg-gray-100 text-gray-700"
+                    : "DashboardNavLink"
+                }
+                to="/admin/messages"
+              >
+                <Mail className="h-5 w-5" aria-hidden="true" />
+                <span className="mx-2 text-sm font-medium">Messages</span>
+              </NavLink>
+
+              <NavLink
+                className={({ isActive }) =>
+                  isActive
+                    ? "DashboardNavLink bg-gray-100 text-gray-700"
+                    : "DashboardNavLink"
+                }
+                to="/admin/comments"
+              >
+                <MessageSquareQuote className="h-5 w-5" aria-hidden="true" />
+                <span className="mx-2 text-sm font-medium">Comments</span>
               </NavLink>
 
               <NavLink
@@ -129,22 +155,21 @@ const AdminSidebar = () => {
                     ? "DashboardNavLink bg-gray-100 text-gray-700"
                     : "DashboardNavLink"
                 }
-                to="/admin/comments"
+                to="/admin/review"
               >
-                <MessageSquareQuote className="h-5 w-5" aria-hidden="true" />
-                <span className="mx-2 text-sm font-medium">Comments</span>
+                <MessageSquareCode className="h-5 w-5" aria-hidden="true" />
+                <span className="mx-2 text-sm font-medium">Review</span>
               </NavLink>
-
               <NavLink
                 className={({ isActive }) =>
                   isActive
                     ? "DashboardNavLink bg-gray-100 text-gray-700"
                     : "DashboardNavLink"
                 }
-                to="/admin/review"
+                to="/admin/newsletters"
               >
-                <MessageSquareCode className="h-5 w-5" aria-hidden="true" />
-                <span className="mx-2 text-sm font-medium">Review</span>
+                <Podcast className="h-5 w-5" aria-hidden="true" />
+                <span className="mx-2 text-sm font-medium">Newsletters</span>
               </NavLink>
             </div>
           </nav>

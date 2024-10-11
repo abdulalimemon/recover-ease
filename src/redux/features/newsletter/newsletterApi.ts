@@ -8,8 +8,16 @@ const newsletterApi = baseApi.injectEndpoints({
         method: "POST",
         body: userInfo,
       }),
+      invalidatesTags: ["subscribe"],
+    }),
+    getSubscribe: builder.query({
+      query: () => ({
+        url: "/newsletter",
+        method: "GET",
+      }),
+      providesTags: ["subscribe"],
     }),
   }),
 });
 
-export const { useSubscribeMutation } = newsletterApi;
+export const { useSubscribeMutation, useGetSubscribeQuery } = newsletterApi;

@@ -8,8 +8,16 @@ const contactUsApi = baseApi.injectEndpoints({
         method: "POST",
         body: contactInfo,
       }),
+      invalidatesTags: ["contact"],
+    }),
+    getMessage: builder.query({
+      query: () => ({
+        url: "/contact-us",
+        method: "GET",
+      }),
+      providesTags: ["contact"],
     }),
   }),
 });
 
-export const { useContactUsMutation } = contactUsApi;
+export const { useContactUsMutation, useGetMessageQuery } = contactUsApi;

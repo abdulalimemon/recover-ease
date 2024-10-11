@@ -7,12 +7,11 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
-import { useGetUserQuery } from "@/redux/features/user/userApi";
-import { TUser } from "@/type";
+import { TSubscribeInputs } from "@/pages/home/Newsletter";
+import { useGetSubscribeQuery } from "@/redux/features/newsletter/newsletterApi";
 
-const AllUserTable = () => {
-  const { data, isLoading, isError } = useGetUserQuery(null);
-
+const AllNewslettersTable = () => {
+  const { data, isError, isLoading } = useGetSubscribeQuery(null);
   return (
     <div className="lg:px-10 mb-10 mt-5">
       <Table>
@@ -20,7 +19,6 @@ const AllUserTable = () => {
           <TableRow>
             <TableHead>Name</TableHead>
             <TableHead>Email</TableHead>
-            <TableHead>Role</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -35,11 +33,10 @@ const AllUserTable = () => {
               <TableSkeleton />
             </>
           )}
-          {data?.map((item: TUser) => (
+          {data?.map((item: TSubscribeInputs) => (
             <TableRow key={item.name}>
               <TableCell className="font-medium">{item.name}</TableCell>
               <TableCell>{item.email}</TableCell>
-              <TableCell>{item.role}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -48,4 +45,4 @@ const AllUserTable = () => {
   );
 };
 
-export default AllUserTable;
+export default AllNewslettersTable;

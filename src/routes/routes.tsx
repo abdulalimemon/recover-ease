@@ -27,6 +27,8 @@ import User from "@/pages/admin/user";
 import ReliefGoods from "@/pages/admin/relief-goods";
 import Donations from "@/pages/admin/donations";
 import Comments from "@/pages/admin/comments";
+import Newsletters from "@/pages/admin/newsletter";
+import Message from "@/pages/admin/message";
 
 const router = createBrowserRouter([
   {
@@ -160,6 +162,14 @@ const router = createBrowserRouter([
       {
         path: "comments",
         element: <Comments />,
+      },
+      {
+        path: "newsletters",
+        element: <Newsletters />,
+      },
+      {
+        path: "messages",
+        element: <Message />,
       },
     ],
   },

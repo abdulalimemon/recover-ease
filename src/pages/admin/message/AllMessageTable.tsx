@@ -6,13 +6,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { TContactInputs } from "@/pages/contact-us/ContactInfo";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
-import { useGetUserQuery } from "@/redux/features/user/userApi";
-import { TUser } from "@/type";
+import { useGetMessageQuery } from "@/redux/features/contactUS/contactUsApi";
 
-const AllUserTable = () => {
-  const { data, isLoading, isError } = useGetUserQuery(null);
-
+const AllMessageTable = () => {
+  const { data, isError, isLoading } = useGetMessageQuery(null);
   return (
     <div className="lg:px-10 mb-10 mt-5">
       <Table>
@@ -20,7 +19,7 @@ const AllUserTable = () => {
           <TableRow>
             <TableHead>Name</TableHead>
             <TableHead>Email</TableHead>
-            <TableHead>Role</TableHead>
+            <TableHead>Message</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -35,11 +34,11 @@ const AllUserTable = () => {
               <TableSkeleton />
             </>
           )}
-          {data?.map((item: TUser) => (
+          {data?.map((item: TContactInputs) => (
             <TableRow key={item.name}>
               <TableCell className="font-medium">{item.name}</TableCell>
               <TableCell>{item.email}</TableCell>
-              <TableCell>{item.role}</TableCell>
+              <TableCell>{item.message}</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -48,4 +47,4 @@ const AllUserTable = () => {
   );
 };
 
-export default AllUserTable;
+export default AllMessageTable;
