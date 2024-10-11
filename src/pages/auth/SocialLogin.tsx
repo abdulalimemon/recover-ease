@@ -3,10 +3,7 @@ import { userAuthContext } from "@/firebase/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import Loading from "@/components/layout/Loading";
 import { Button } from "@/components/ui/button";
-
-export type Text = {
-  text: String;
-};
+import { Text } from "@/type";
 
 const SocialLogin = ({ text }: Text) => {
   const authContext = useContext(userAuthContext);

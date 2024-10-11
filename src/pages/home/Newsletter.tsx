@@ -3,6 +3,7 @@ import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useSubscribeMutation } from "@/redux/features/newsletter/newsletterApi";
+import { TSubscribeInputs } from "@/type";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -50,11 +51,6 @@ const people = [
       "https://images.pexels.com/photos/2379005/pexels-photo-2379005.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1&auto=format&fit=crop&w=800&q=60",
   },
 ];
-
-export type TSubscribeInputs = {
-  name: string;
-  email: string;
-};
 
 const Newsletter = () => {
   const {

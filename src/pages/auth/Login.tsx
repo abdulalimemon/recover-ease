@@ -11,11 +11,7 @@ import { setUser } from "@/redux/features/auth/authSlice";
 import { verifyToken } from "@/utils/verifyToken";
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "./SocialLogin";
-
-export type TLoginInputs = {
-  email: string;
-  password: string;
-};
+import { TLoginInputs } from "@/type";
 
 const Login = () => {
   const {

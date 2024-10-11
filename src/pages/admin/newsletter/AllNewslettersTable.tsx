@@ -7,8 +7,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
-import { TSubscribeInputs } from "@/pages/home/Newsletter";
 import { useGetSubscribeQuery } from "@/redux/features/newsletter/newsletterApi";
+import { TSubscribeInputs } from "@/type";
 
 const AllNewslettersTable = () => {
   const { data, isError, isLoading } = useGetSubscribeQuery(null);

@@ -6,9 +6,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { TContactInputs } from "@/pages/contact-us/ContactInfo";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
 import { useGetMessageQuery } from "@/redux/features/contactUS/contactUsApi";
+import { TContactInputs } from "@/type";
 
 const AllMessageTable = () => {
   const { data, isError, isLoading } = useGetMessageQuery(null);

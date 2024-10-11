@@ -4,16 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link, useNavigate } from "react-router-dom";
 import { useAllReliefGoodsQuery } from "@/redux/features/reliefGoods/reliefGoodsApi";
 import PostSkeleton from "@/components/layout/main/PostSkeleton";
-
-export type TReliefGoodsType = {
-  id: number;
-  _id: string;
-  image: string;
-  title: string;
-  category: string;
-  amount: string;
-  description: string;
-};
+import { TReliefGoodsType } from "@/type";
 
 const ReliefGoodsPosts = () => {
   const { data, isLoading, isError } = useAllReliefGoodsQuery(null);

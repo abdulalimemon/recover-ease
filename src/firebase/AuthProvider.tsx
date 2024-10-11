@@ -14,7 +14,7 @@ interface IUserAuthProviderProps {
 
 type AuthContextData = {
   user: User | null;
-  loading: boolean; // Added `loading` to indicate if auth state is being checked
+  loading: boolean;
   logOut: typeof logOut;
   googleSignIn: typeof googleSignIn;
 };
@@ -33,7 +33,7 @@ const googleSignIn = async () => {
 // Create a context for user authentication, initially with null user and true loading state
 export const userAuthContext = createContext<AuthContextData>({
   user: null,
-  loading: true, // Initial loading state set to true
+  loading: true, 
   logOut,
   googleSignIn,
 });
@@ -43,28 +43,27 @@ export const UserAuthProvider: React.FunctionComponent<
   IUserAuthProviderProps
 > = ({ children }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true); // Track loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        setUser(currentUser); // Set user if authenticated
+        setUser(currentUser); 
       } else {
-        setUser(null); // Set user to null if not authenticated
+        setUser(null);
       }
-      setLoading(false); // Stop loading once auth state is checked
+      setLoading(false); 
     });
 
-    // Clean up subscription on unmount
     return () => {
       unsubscribe();
     };
-  }, []); // Empty dependency array ensures this effect runs once when the component mounts
+  }, []); 
 
   // Value provided to context consumers
   const value: AuthContextData = {
     user,
-    loading, // Pass loading state to context
+    loading, 
     logOut,
     googleSignIn,
   };

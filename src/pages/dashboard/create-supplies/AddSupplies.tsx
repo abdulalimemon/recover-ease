@@ -14,16 +14,7 @@ import {
 } from "@/components/ui/select";
 import { toast } from "sonner";
 import { useAddSupplyMutation } from "@/redux/features/reliefGoods/supplyApi";
-
-export type TAddSupplyInputs = {
-  id: string;
-  _id: string;
-  imageUrl?: string;
-  category: string;
-  title: string;
-  amount: number;
-  description?: string;
-};
+import { TAddSupplyInputs } from "@/type";
 
 const AddSupplies = () => {
   const {

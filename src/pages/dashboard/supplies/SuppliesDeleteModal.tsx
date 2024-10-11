@@ -10,9 +10,9 @@ import {
 } from "@/components/ui/dialog";
 import { useDeleteSupplyMutation } from "@/redux/features/reliefGoods/supplyApi";
 import { Trash2 } from "lucide-react";
-import { TAddSupplyInputs } from "../create-supplies/AddSupplies";
 import { toast } from "sonner";
 import { useNavigate } from "react-router-dom";
+import { TAddSupplyInputs } from "@/type";
 
 const SuppliesDeleteModal = ({ item }: { item: TAddSupplyInputs }) => {
   const [deleteSupply] = useDeleteSupplyMutation();

@@ -14,7 +14,6 @@ import { SquarePen } from "lucide-react";
 import { useUpdateSupplyMutation } from "@/redux/features/reliefGoods/supplyApi";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-import { TAddSupplyInputs } from "../create-supplies/AddSupplies";
 import {
   Select,
   SelectContent,
@@ -25,6 +24,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { TAddSupplyInputs } from "@/type";
 
 const AllSuppliesEditModal = ({ item }: { item: TAddSupplyInputs }) => {
   const [updateSupply] = useUpdateSupplyMutation();

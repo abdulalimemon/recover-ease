@@ -7,8 +7,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
-import { TReliefGoodsType } from "@/pages/home/ReliefGoodsPosts";
 import { useAllReliefGoodsQuery } from "@/redux/features/reliefGoods/reliefGoodsApi";
+import { TReliefGoodsType } from "@/type";
 
 const AllReliefGoodsTable = () => {
   const { data, isLoading, isError } = useAllReliefGoodsQuery(null);

@@ -5,19 +5,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { userAuthContext } from "@/firebase/AuthProvider";
 import { useAddTestimonialMutation } from "@/redux/features/testimonial/testimonialApi";
 import { useAppSelector } from "@/redux/hooks";
+import { TTestimonialInputs } from "@/type";
 import { ArrowRight } from "lucide-react";
 import { useContext } from "react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-
-export type TTestimonialInputs = {
-  name: string;
-  email: string;
-  image: string;
-  position: string;
-  company: string;
-  review: string;
-};
 
 const AddTestimonial = () => {
   const {

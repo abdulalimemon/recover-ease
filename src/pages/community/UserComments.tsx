@@ -1,8 +1,8 @@
 import Container from "@/components/layout/Container";
 import { useGetCommentQuery } from "@/redux/features/comment/commentApi";
-import { TCommentInputs } from "./PostComments";
 import user from "@/assets/img/user1.png";
 import CommentSkeleton from "./CommentSkeleton";
+import { TCommentInputs } from "@/type";
 
 const UserComments = () => {
   const { data, isError, isLoading } = useGetCommentQuery(null);

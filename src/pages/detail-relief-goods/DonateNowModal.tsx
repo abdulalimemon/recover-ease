@@ -17,13 +17,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import { useDonationMutation } from "@/redux/features/reliefGoods/donationApi";
-
-export type TDonationInputs = {
-  _id: string;
-  name: string;
-  email: string;
-  amount: string;
-};
+import { TDonationInputs } from "@/type";
 
 const DonateNowModal = ({ data }: { data: TReliefGoodsType }) => {
   const { title, amount } = data;

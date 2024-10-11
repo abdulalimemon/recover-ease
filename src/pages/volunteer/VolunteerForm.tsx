@@ -2,17 +2,9 @@ import Container from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAddVolunteerMutation } from "@/redux/features/volunteer/volunteerApi";
+import { TVolunteerInputs } from "@/type";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-
-export type TVolunteerInputs = {
-  name: string;
-  email: string;
-  image: string;
-  phone: number;
-  location: string;
-  occupation:string;
-};
 
 const VolunteerForm = () => {
   const {

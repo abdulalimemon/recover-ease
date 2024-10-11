@@ -7,8 +7,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
-import { TVolunteerInputs } from "@/pages/volunteer/VolunteerForm";
 import { useGetVolunteerQuery } from "@/redux/features/volunteer/volunteerApi";
+import { TVolunteerInputs } from "@/type";
 
 const AllVolunteerTable = () => {
   const { data, isError, isLoading } = useGetVolunteerQuery(null);

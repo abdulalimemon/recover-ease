@@ -8,12 +8,7 @@ import { useSigninMutation } from "@/redux/features/auth/authApi";
 import { toast } from "sonner";
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "./SocialLogin";
-
-export type TRegisterInputs = {
-  name: string;
-  email: string;
-  password: string;
-};
+import { TRegisterInputs } from "@/type";
 
 const Registration = () => {
   const {

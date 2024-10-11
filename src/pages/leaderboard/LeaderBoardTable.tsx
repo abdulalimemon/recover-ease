@@ -8,8 +8,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { useGetDonationQuery } from "@/redux/features/reliefGoods/donationApi";
-import { TDonationInputs } from "../detail-relief-goods/DonateNowModal";
 import LeaderBoardTableSkeleton from "./LeaderBoardTableSkeleton";
+import { TDonationInputs } from "@/type";
 
 const LeaderBoardTable = () => {
   const { data, isError, isLoading } = useGetDonationQuery(null);

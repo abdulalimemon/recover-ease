@@ -7,8 +7,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
-import { TDonationInputs } from "@/pages/detail-relief-goods/DonateNowModal";
 import { useGetDonationQuery } from "@/redux/features/reliefGoods/donationApi";
+import { TDonationInputs } from "@/type";
 
 const AllDonationsTable = () => {
   const { data, isError, isLoading } = useGetDonationQuery(null);

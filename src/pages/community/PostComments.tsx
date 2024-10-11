@@ -3,14 +3,9 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { usePostCommentMutation } from "@/redux/features/comment/commentApi";
+import { TCommentInputs } from "@/type";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-
-export type TCommentInputs = {
-  name: string;
-  email: string;
-  message: string;
-};
 
 const PostComments = () => {
   const {

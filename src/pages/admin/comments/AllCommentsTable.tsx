@@ -6,9 +6,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { TCommentInputs } from "@/pages/community/PostComments";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
 import { useGetCommentQuery } from "@/redux/features/comment/commentApi";
+import { TCommentInputs } from "@/type";
 
 const AllCommentsTable = () => {
   const { data, isError, isLoading } = useGetCommentQuery(null);

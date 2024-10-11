@@ -3,15 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useContactUsMutation } from "@/redux/features/contactUS/contactUsApi";
+import { TContactInputs } from "@/type";
 import { Mail, PhoneCall } from "lucide-react";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "sonner";
-
-export type TContactInputs = {
-  name: string;
-  email: string;
-  message: string;
-};
 
 const ContactInfo = () => {
   const {

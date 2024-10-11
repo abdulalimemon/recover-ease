@@ -9,9 +9,9 @@ import {
 import AllSuppliesEditModal from "./AllSuppliesEditModal";
 import SuppliesDeleteModal from "./SuppliesDeleteModal";
 import { useGetSupplyQuery } from "@/redux/features/reliefGoods/supplyApi";
-import { TAddSupplyInputs } from "../create-supplies/AddSupplies";
 import TableSkeleton from "./TableSkeleton";
 import { useAppSelector } from "@/redux/hooks";
+import { TAddSupplyInputs } from "@/type";
 
 const AllSuppliesTable = () => {
   const { data, isLoading, isError } = useGetSupplyQuery(null);

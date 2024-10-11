@@ -7,8 +7,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
-import { TTestimonialInputs } from "@/pages/dashboard/testimonial/AddTestimonial";
 import { useGetTestimonialQuery } from "@/redux/features/testimonial/testimonialApi";
+import { TTestimonialInputs } from "@/type";
 
 const AllTestimonialTable = () => {
   const { data, isLoading, isError } = useGetTestimonialQuery(null);
