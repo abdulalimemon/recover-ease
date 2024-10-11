@@ -6,23 +6,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { TAddSupplyInputs } from "@/pages/dashboard/create-supplies/AddSupplies";
+import { TCommentInputs } from "@/pages/community/PostComments";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
-import { useGetSupplyQuery } from "@/redux/features/reliefGoods/supplyApi";
-import { useAppSelector } from "@/redux/hooks";
+import { useGetCommentQuery } from "@/redux/features/comment/commentApi";
 
 const AllCommentsTable = () => {
-  const { data, isLoading, isError } = useGetSupplyQuery(null);
-  const userInfo = useAppSelector((state) => state.auth.user);
+  const { data, isError, isLoading } = useGetCommentQuery(null);
   return (
-    <div className="lg:px-10 my-10 ">
+    <div className="lg:px-10 mb-10 mt-5">
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Title</TableHead>
-            <TableHead>Category</TableHead>
-            <TableHead>Amount</TableHead>
-            {userInfo?.role === "admin" && <TableHead>Action</TableHead>}
+            <TableHead>Name</TableHead>
+            <TableHead>Email</TableHead>
+            <TableHead>Comment</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -37,16 +34,11 @@ const AllCommentsTable = () => {
               <TableSkeleton />
             </>
           )}
-          {data?.map((item: TAddSupplyInputs) => (
-            <TableRow key={item._id}>
-              <TableCell className="font-medium">{item.title}</TableCell>
-              <TableCell>{item.category}</TableCell>
-              <TableCell>{item.amount}</TableCell>
-              {userInfo?.role === "admin" && (
-                <TableCell className="text-right w-[100px] lg:w-[200px] ">
-                  <div className="flex flex-col lg:flex-row"></div>
-                </TableCell>
-              )}
+          {data?.map((item: TCommentInputs) => (
+            <TableRow key={item.name}>
+              <TableCell className="font-medium">{item.name}</TableCell>
+              <TableCell>{item.email}</TableCell>
+              <TableCell>{item.message}</TableCell>
             </TableRow>
           ))}
         </TableBody>

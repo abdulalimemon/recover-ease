@@ -6,23 +6,20 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { TAddSupplyInputs } from "@/pages/dashboard/create-supplies/AddSupplies";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
-import { useGetSupplyQuery } from "@/redux/features/reliefGoods/supplyApi";
-import { useAppSelector } from "@/redux/hooks";
+import { TDonationInputs } from "@/pages/detail-relief-goods/DonateNowModal";
+import { useGetDonationQuery } from "@/redux/features/reliefGoods/donationApi";
 
 const AllDonationsTable = () => {
-  const { data, isLoading, isError } = useGetSupplyQuery(null);
-  const userInfo = useAppSelector((state) => state.auth.user);
+  const { data, isError, isLoading } = useGetDonationQuery(null);
   return (
-    <div className="lg:px-10 my-10 ">
+    <div className="lg:px-10 mb-10 mt-5">
       <Table>
         <TableHeader>
           <TableRow>
-            <TableHead>Title</TableHead>
-            <TableHead>Category</TableHead>
+            <TableHead>Name</TableHead>
+            <TableHead>Email</TableHead>
             <TableHead>Amount</TableHead>
-            {userInfo?.role === "admin" && <TableHead>Action</TableHead>}
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -37,16 +34,11 @@ const AllDonationsTable = () => {
               <TableSkeleton />
             </>
           )}
-          {data?.map((item: TAddSupplyInputs) => (
+          {data?.map((item: TDonationInputs) => (
             <TableRow key={item._id}>
-              <TableCell className="font-medium">{item.title}</TableCell>
-              <TableCell>{item.category}</TableCell>
+              <TableCell className="font-medium">{item.name}</TableCell>
+              <TableCell>{item.email}</TableCell>
               <TableCell>{item.amount}</TableCell>
-              {userInfo?.role === "admin" && (
-                <TableCell className="text-right w-[100px] lg:w-[200px] ">
-                  <div className="flex flex-col lg:flex-row"></div>
-                </TableCell>
-              )}
             </TableRow>
           ))}
         </TableBody>

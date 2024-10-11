@@ -17,10 +17,12 @@ const Supplies = () => {
       </h2>
       {userInfo?.role === "admin" && (
         <div className="text-right lg:px-10">
-          <Button>
-            <Plus className="size-4 mr-2" />
-            <Link to="/admin/create-supplies">Add Supply Post</Link>
-          </Button>
+          <Link to="/admin/create-supplies">
+            <Button>
+              <Plus className="size-4 mr-2" />
+              Add Supply Post
+            </Button>
+          </Link>
         </div>
       )}
 

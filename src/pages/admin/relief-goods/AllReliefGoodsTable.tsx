@@ -6,14 +6,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { TAddSupplyInputs } from "@/pages/dashboard/create-supplies/AddSupplies";
 import TableSkeleton from "@/pages/dashboard/supplies/TableSkeleton";
+import { TReliefGoodsType } from "@/pages/home/ReliefGoodsPosts";
 import { useAllReliefGoodsQuery } from "@/redux/features/reliefGoods/reliefGoodsApi";
 
 const AllReliefGoodsTable = () => {
   const { data, isLoading, isError } = useAllReliefGoodsQuery(null);
   return (
-    <div className="lg:px-10 mb-10 ">
+    <div className="lg:px-10 mb-10 mt-5">
       <Table>
         <TableHeader>
           <TableRow>
@@ -35,7 +35,7 @@ const AllReliefGoodsTable = () => {
               <TableSkeleton />
             </>
           )}
-          {data?.map((item: TAddSupplyInputs) => (
+          {data?.map((item: TReliefGoodsType) => (
             <TableRow key={item._id}>
               <TableCell className="font-medium">{item.title}</TableCell>
               <TableCell>{item.category}</TableCell>

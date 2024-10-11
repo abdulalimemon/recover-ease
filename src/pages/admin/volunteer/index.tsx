@@ -7,9 +7,7 @@ const AllVolunteer = () => {
       <Helmet>
         <title>Volunteer - Recover Ease</title>
       </Helmet>
-      <h2 className="text-center text-xl font-semibold py-5">
-        Volunteer User.
-      </h2>
+      <h2 className="text-center text-xl font-semibold py-5">All Volunteer.</h2>
       <AllVolunteerTable />
     </div>
   );

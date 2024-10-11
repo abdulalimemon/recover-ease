@@ -27,7 +27,7 @@ export type TDonationInputs = {
 
 const DonateNowModal = ({ data }: { data: TReliefGoodsType }) => {
   const { title, amount } = data;
-  const userInfo = useAppSelector((state) => state.auth.user);
+  const userInfo = useAppSelector((state) => state?.auth?.user);
   const token = useAppSelector(useCurrentToken);
   const {
     register,
