@@ -49,6 +49,7 @@ const AdminMobileNav = () => {
                           : "DashboardNavMobile"
                       }
                       to="/admin/home"
+                      onClick={() => setShowSidebar(!showSidebar)}
                     >
                       <BarChart className="h-5 w-5" aria-hidden="true" />
                       <span className="mx-2 text-sm font-medium">
@@ -62,6 +63,7 @@ const AdminMobileNav = () => {
                           : "DashboardNavMobile"
                       }
                       to="/admin/supplies"
+                      onClick={() => setShowSidebar(!showSidebar)}
                     >
                       <Wallet className="h-5 w-5" aria-hidden="true" />
                       <span className="mx-2 text-sm font-medium">Supplies</span>
@@ -73,6 +75,7 @@ const AdminMobileNav = () => {
                           : "DashboardNavMobile"
                       }
                       to="/admin/create-supplies"
+                      onClick={() => setShowSidebar(!showSidebar)}
                     >
                       <ListPlus className="h-5 w-5" aria-hidden="true" />
                       <span className="mx-2 text-sm font-medium">
@@ -85,7 +88,8 @@ const AdminMobileNav = () => {
                           ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
                           : "DashboardNavMobile"
                       }
-                      to="/admin/create-testimonial"
+                      to="/admin/testimonial"
+                      onClick={() => setShowSidebar(!showSidebar)}
                     >
                       <MessageSquareCode
                         className="h-5 w-5"

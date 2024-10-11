@@ -54,7 +54,7 @@ const AllPost = () => {
                 <div className="rounded-md border" key={items._id}>
                   <img
                     src={items.image}
-                    alt="Laptop"
+                    alt={items.title}
                     className="h-[200px] w-full rounded-t-md object-cover"
                   />
                   <div className="p-4">

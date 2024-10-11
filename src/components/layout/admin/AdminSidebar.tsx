@@ -23,8 +23,11 @@ const AdminSidebar = () => {
     <div className="bg-[#010A1F] hidden lg:block">
       <aside className="flex h-screen w-64 flex-col overflow-y-auto border-r border-[#010A1F] dark:border-[#333333] px-5 py-8">
         <div className="text-center">
-          <Link to="/" className="font-bold text-2xl text-white">
-            Recover <span className="text-red-500">Ease</span>
+          <Link
+            to="/"
+            className="font-bold text-2xl bg-clip-text text-transparent bg-gradient-to-r from-gray-200 to-gray-500"
+          >
+            Recover Ease
           </Link>
         </div>
         <div className="mt-6 flex flex-1 flex-col justify-between">

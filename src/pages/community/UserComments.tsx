@@ -14,7 +14,7 @@ const UserComments = () => {
             Wall of Gratitude.
           </h2>
         </div>
-        <div className="bg-slate-100 dark:bg-slate-900 rounded-md">
+        <div className="grid grid-cols-1 md:grid-cols-2 bg-slate-100 dark:bg-slate-900 rounded-md">
           {(isLoading || isError || !data) && (
             <>
               <CommentSkeleton />
@@ -25,7 +25,7 @@ const UserComments = () => {
           {data?.map((item: TCommentInputs, index: number) => (
             <div className="flex p-5 md:p-10" key={index}>
               <img
-                className="object-cover size-14 md:size-20 rounded-full"
+                className="object-cover size-14 lg:size-20 rounded-full"
                 src={user}
                 alt="Avatar"
               />

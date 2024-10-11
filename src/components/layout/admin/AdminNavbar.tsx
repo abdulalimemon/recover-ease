@@ -28,7 +28,15 @@ const AdminNavbar = () => {
     logOut();
   };
   return (
-    <div className="h-14 lg:h-16 border-b-2 bg-slate-100 dark:bg-slate-900 flex items-center justify-end px-5 lg:px-10">
+    <div className="h-14 lg:h-16 border-b-2 bg-slate-100 dark:bg-slate-900 flex items-center justify-between lg:justify-end px-5 lg:px-10">
+      <div className="lg:hidden flex items-center justify-center ">
+        <AdminMobileNav />
+        <div className="">
+          <Link to="/" className="font-bold text-lg text-gradient">
+            Recover Ease
+          </Link>
+        </div>
+      </div>
       <div className="relative hidden">
         <Search
           fontSize={20}
@@ -40,16 +48,8 @@ const AdminNavbar = () => {
           className="text-black dark:text-white bg-white dark:bg-black text-sm focus:outline-none active:outline-none border w-[24rem] h-10 pl-11 pr-4 rounded-sm border-slate-300"
         />
       </div>
-      <div className="lg:hidden flex items-center justify-center">
-        <AdminMobileNav />
-        <div className="">
-          <Link to="/" className="font-bold text-lg">
-            Recover <span className="text-red-500">Ease</span>
-          </Link>
-        </div>
-      </div>
       <div className="flex justify-center items-center">
-        <Link to="/" className="font-semibold mr-5">
+        <Link to="/" className="font-semibold mr-5 hidden lg:block">
           Home
         </Link>
         <div>
@@ -67,11 +67,7 @@ const AdminNavbar = () => {
         <div>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <img
-                src={userPic}
-                className="size-8 cursor-pointer"
-                alt="user"
-              />
+              <img src={userPic} className="size-8 cursor-pointer" alt="user" />
             </DropdownMenuTrigger>
             <DropdownMenuContent className="w-56 ">
               <DropdownMenuLabel className="text-center">
@@ -80,7 +76,7 @@ const AdminNavbar = () => {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuGroup className="cursor-pointer">
-                <Link to="/admin/profile">
+                <Link to="/dashboard/profile">
                   <DropdownMenuItem className="cursor-pointer">
                     Profile
                   </DropdownMenuItem>

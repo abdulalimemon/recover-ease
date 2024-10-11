@@ -15,12 +15,13 @@ import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import Leaderboard from "@/pages/leaderboard";
 import Community from "@/pages/community";
 import Volunteer from "@/pages/volunteer";
-import Testimonial from "@/pages/dashboard/testimonial";
 import AboutUs from "@/pages/about-us";
 import ContactUs from "@/pages/contact-us";
 import Profile from "@/pages/dashboard/profile";
 import RequireAdmin from "./RequireAdmin";
 import AdminLayout from "@/components/layout/admin/AdminLayout";
+import AllTestimonial from "@/pages/admin/testimonial";
+import CreateTestimonial from "@/pages/dashboard/testimonial";
 
 const router = createBrowserRouter([
   {
@@ -99,7 +100,7 @@ const router = createBrowserRouter([
       },
       {
         path: "create-testimonial",
-        element: <Testimonial />,
+        element: <CreateTestimonial />,
       },
     ],
   },
@@ -126,6 +127,10 @@ const router = createBrowserRouter([
       {
         path: "create-supplies",
         element: <CreateSupplies />,
+      },
+      {
+        path: "testimonial",
+        element: <AllTestimonial />,
       },
       {
         path: "profile",

@@ -42,6 +42,7 @@ const DashboardMobileNav = () => {
                           : "DashboardNavMobile"
                       }
                       to="/dashboard/home"
+                      onClick={() => setShowSidebar(!showSidebar)}
                     >
                       <BarChart className="h-5 w-5" aria-hidden="true" />
                       <span className="mx-2 text-sm font-medium">
@@ -55,6 +56,7 @@ const DashboardMobileNav = () => {
                           : "DashboardNavMobile"
                       }
                       to="/dashboard/supplies"
+                      onClick={() => setShowSidebar(!showSidebar)}
                     >
                       <Wallet className="h-5 w-5" aria-hidden="true" />
                       <span className="mx-2 text-sm font-medium">Supplies</span>
@@ -66,6 +68,7 @@ const DashboardMobileNav = () => {
                           : "DashboardNavMobile"
                       }
                       to="/dashboard/create-testimonial"
+                      onClick={() => setShowSidebar(!showSidebar)}
                     >
                       <MessageSquareCode
                         className="h-5 w-5"

@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import AddTestimonial from "./AddTestimonial";
 
-const Testimonial = () => {
+const CreateTestimonial = () => {
   return (
     <>
       <Helmet>
@@ -17,4 +17,4 @@ const Testimonial = () => {
   );
 };
 
-export default Testimonial;
+export default CreateTestimonial;

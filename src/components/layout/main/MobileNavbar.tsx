@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { userAuthContext } from "@/firebase/AuthProvider";
-import { logout, useCurrentToken } from "@/redux/features/auth/authSlice";
+import { logout } from "@/redux/features/auth/authSlice";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { X } from "lucide-react";
 import { useContext } from "react";
@@ -14,7 +14,7 @@ interface MenuManager {
 
 const MobileNavbar = ({ toggleMenu }: MenuManager) => {
   const dispatch = useAppDispatch();
-  const token = useAppSelector(useCurrentToken);
+  const userInfo = useAppSelector((state) => state.auth.user);
   const { user, logOut } = useContext(userAuthContext);
 
   const handleLogOut = () => {
@@ -62,13 +62,17 @@ const MobileNavbar = ({ toggleMenu }: MenuManager) => {
               <Link to="/volunteer" className="decoration-none font-semibold">
                 Volunteer
               </Link>
-              {(token || user) && (
+              {userInfo?.role === "admin" ? (
+                <Link to="/admin" className="decoration-none font-semibold">
+                  Dashboard
+                </Link>
+              ) : (
                 <Link to="/dashboard" className="decoration-none font-semibold">
                   Dashboard
                 </Link>
               )}
             </nav>
-            {token || user ? (
+            {userInfo || user ? (
               <Button className="mt-4 w-1/2 mx-auto" onClick={handleLogOut}>
                 Log Out
               </Button>
