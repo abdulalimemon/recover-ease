@@ -1,9 +1,8 @@
+import Welcome from "@/pages/dashboard/Home/Welcome";
 import { Helmet } from "react-helmet-async";
-import Charts from "./Charts";
-import Welcome from "./Welcome";
-import CardSection from "@/pages/admin/home/CardSection";
+import CardSection from "./CardSection";
 
-const UserDashboard = () => {
+const AdminDashboard = () => {
   return (
     <>
       <Helmet>
@@ -11,9 +10,8 @@ const UserDashboard = () => {
       </Helmet>
       <Welcome />
       <CardSection />
-      <Charts />
     </>
   );
 };
 
-export default UserDashboard;
+export default AdminDashboard;

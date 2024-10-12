@@ -16,11 +16,13 @@ import { TAddSupplyInputs } from "@/type";
 const AllSuppliesTable = () => {
   const { data, isLoading, isError } = useGetSupplyQuery(null);
   const userInfo = useAppSelector((state) => state.auth.user);
+
   return (
     <div className="lg:px-10 my-10 ">
       <Table>
         <TableHeader>
           <TableRow>
+            <TableHead>Image</TableHead>
             <TableHead>Title</TableHead>
             <TableHead>Category</TableHead>
             <TableHead>Amount</TableHead>
@@ -41,6 +43,13 @@ const AllSuppliesTable = () => {
           )}
           {data?.map((item: TAddSupplyInputs) => (
             <TableRow key={item._id}>
+              <TableCell>
+                <img
+                  alt={item._id}
+                  className="self-center flex-shrink-0 size-10 mb-4 bg-center bg-cover rounded-full "
+                  src={item.imageUrl}
+                />
+              </TableCell>
               <TableCell className="font-medium">{item.title}</TableCell>
               <TableCell>{item.category}</TableCell>
               <TableCell>{item.amount}</TableCell>

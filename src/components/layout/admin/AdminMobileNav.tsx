@@ -4,9 +4,16 @@ import {
   BarChart,
   Wallet,
   ListPlus,
+  MessageSquareCode,
+  Users,
+  BookUser,
+  HandCoins,
+  Newspaper,
+  MessageSquareQuote,
+  Mail,
+  Podcast,
   Menu,
   X,
-  MessageSquareCode,
 } from "lucide-react";
 
 const AdminMobileNav = () => {
@@ -62,12 +69,70 @@ const AdminMobileNav = () => {
                           ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
                           : "DashboardNavMobile"
                       }
+                      to="/admin/user"
+                      onClick={() => setShowSidebar(!showSidebar)}
+                    >
+                      <Users className="h-5 w-5" aria-hidden="true" />
+                      <span className="mx-2 text-sm font-medium">Users</span>
+                    </NavLink>
+
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
+                          : "DashboardNavMobile"
+                      }
+                      to="/admin/messages"
+                      onClick={() => setShowSidebar(!showSidebar)}
+                    >
+                      <Mail className="h-5 w-5" aria-hidden="true" />
+                      <span className="mx-2 text-sm font-medium">Messages</span>
+                    </NavLink>
+
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
+                          : "DashboardNavMobile"
+                      }
+                      to="/admin/comments"
+                      onClick={() => setShowSidebar(!showSidebar)}
+                    >
+                      <MessageSquareQuote
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
+                      <span className="mx-2 text-sm font-medium">Comments</span>
+                    </NavLink>
+
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
+                          : "DashboardNavMobile"
+                      }
                       to="/admin/supplies"
                       onClick={() => setShowSidebar(!showSidebar)}
                     >
                       <Wallet className="h-5 w-5" aria-hidden="true" />
                       <span className="mx-2 text-sm font-medium">Supplies</span>
                     </NavLink>
+
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
+                          : "DashboardNavMobile"
+                      }
+                      to="/admin/relief-goods"
+                      onClick={() => setShowSidebar(!showSidebar)}
+                    >
+                      <Newspaper className="h-5 w-5" aria-hidden="true" />
+                      <span className="mx-2 text-sm font-medium">
+                        Relief Goods
+                      </span>
+                    </NavLink>
+
                     <NavLink
                       className={({ isActive }) =>
                         isActive
@@ -82,6 +147,37 @@ const AdminMobileNav = () => {
                         Create Supplies
                       </span>
                     </NavLink>
+
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
+                          : "DashboardNavMobile"
+                      }
+                      to="/admin/volunteer"
+                      onClick={() => setShowSidebar(!showSidebar)}
+                    >
+                      <BookUser className="h-5 w-5" aria-hidden="true" />
+                      <span className="mx-2 text-sm font-medium">
+                        Volunteer
+                      </span>
+                    </NavLink>
+
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
+                          : "DashboardNavMobile"
+                      }
+                      to="/admin/donations"
+                      onClick={() => setShowSidebar(!showSidebar)}
+                    >
+                      <HandCoins className="h-5 w-5" aria-hidden="true" />
+                      <span className="mx-2 text-sm font-medium">
+                        Donations
+                      </span>
+                    </NavLink>
+
                     <NavLink
                       className={({ isActive }) =>
                         isActive
@@ -95,8 +191,23 @@ const AdminMobileNav = () => {
                         className="h-5 w-5"
                         aria-hidden="true"
                       />
+                      <span className="mx-2 text-sm font-medium">Review</span>
+                    </NavLink>
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "DashboardNavMobile bg-gray-900 dark:bg-gray-700 text-gray-100"
+                          : "DashboardNavMobile"
+                      }
+                      to="/admin/newsletters"
+                      onClick={() => setShowSidebar(!showSidebar)}
+                    >
+                      <Podcast
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
                       <span className="mx-2 text-sm font-medium">
-                        Review
+                        Newsletters
                       </span>
                     </NavLink>
                   </div>

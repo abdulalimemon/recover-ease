@@ -1,6 +1,5 @@
-import { TLoginInputs } from "@/pages/auth/Login";
-import { TRegisterInputs } from "@/pages/auth/Registration";
 import { baseApi } from "@/redux/api/baseApi";
+import { TLoginInputs, TRegisterInputs } from "@/type";
 
 const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({

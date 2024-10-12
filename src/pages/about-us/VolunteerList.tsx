@@ -1,7 +1,7 @@
 import Container from "@/components/layout/Container";
 import { useGetVolunteerQuery } from "@/redux/features/volunteer/volunteerApi";
-import { TVolunteerInputs } from "../volunteer/VolunteerForm";
 import VolunteerListSkeleton from "./VolunteerListSkeleton";
+import { TVolunteerInputs } from "@/type";
 
 const VolunteerList = () => {
   const {

@@ -2,9 +2,9 @@ import Container from "@/components/layout/Container";
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useAllReliefGoodsQuery } from "@/redux/features/reliefGoods/reliefGoodsApi";
-import { TReliefGoodsType } from "../home/ReliefGoodsPosts";
 import { useNavigate } from "react-router-dom";
 import PostSkeleton from "@/components/layout/main/PostSkeleton";
+import { TReliefGoodsType } from "@/type";
 
 const AllPost = () => {
   const { data, isLoading, isError } = useAllReliefGoodsQuery(null);

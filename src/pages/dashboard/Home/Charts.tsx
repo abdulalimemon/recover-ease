@@ -1,5 +1,3 @@
-import PieChartComponent from "./PieChart";
-
 const Charts = () => {
   return (
     <section className="h-auto">
@@ -10,7 +8,6 @@ const Charts = () => {
               PieChart Report.
             </h2>
           </div>
-          <PieChartComponent />
         </div>
         <div className="border p-5 rounded-md h-[450px]">
           <div>
@@ -18,7 +15,6 @@ const Charts = () => {
               PieChart Report.
             </h2>
           </div>
-          <PieChartComponent />
         </div>
       </div>
     </section>

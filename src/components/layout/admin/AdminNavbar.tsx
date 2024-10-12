@@ -20,7 +20,7 @@ import AdminMobileNav from "./AdminMobileNav";
 const AdminNavbar = () => {
   const { setTheme } = useTheme();
   const dispatch = useAppDispatch();
-  const userInfo = useAppSelector((state) => state.auth.user);
+  const userInfo = useAppSelector((state) => state?.auth?.user);
   const { user, logOut } = useContext(userAuthContext);
 
   const handleLogOut = () => {

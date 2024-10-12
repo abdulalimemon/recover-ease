@@ -8,7 +8,6 @@ import DetailsReliefGoods from "@/pages/detail-relief-goods";
 import FAQ from "@/pages/faq";
 import NotFound from "@/pages/404/NotFound";
 import DashboardLayout from "@/components/layout/dashboard/DashboardLayout";
-import Dashboard from "@/pages/dashboard/Home";
 import Supplies from "@/pages/dashboard/supplies";
 import CreateSupplies from "@/pages/dashboard/create-supplies";
 import ProtectedRoute from "@/components/layout/ProtectedRoute";
@@ -29,6 +28,8 @@ import Donations from "@/pages/admin/donations";
 import Comments from "@/pages/admin/comments";
 import Newsletters from "@/pages/admin/newsletter";
 import Message from "@/pages/admin/message";
+import UserDashboard from "@/pages/dashboard/Home";
+import AdminDashboard from "@/pages/admin/home";
 
 const router = createBrowserRouter([
   {
@@ -99,7 +100,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/home",
-        element: <Dashboard />,
+        element: <UserDashboard />,
       },
       {
         path: "profile",
@@ -129,7 +130,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/admin/home",
-        element: <Dashboard />,
+        element: <AdminDashboard />,
       },
       {
         path: "create-supplies",

@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { Navigate } from "react-router-dom";
 
 const RequireAdmin = ({ children }: any) => {
-  const { user, logOut, loading } = useContext(userAuthContext);
+  const { logOut, loading } = useContext(userAuthContext);
   const userInfo = useAppSelector((state) => state.auth.user);
   const dispatch = useAppDispatch();
 

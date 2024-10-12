@@ -10,14 +10,13 @@ import {
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { TReliefGoodsType } from "../home/ReliefGoodsPosts";
 import { useAppSelector } from "@/redux/hooks";
 import { useCurrentToken } from "@/redux/features/auth/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import { useDonationMutation } from "@/redux/features/reliefGoods/donationApi";
-import { TDonationInputs } from "@/type";
+import { TDonationInputs, TReliefGoodsType } from "@/type";
 
 const DonateNowModal = ({ data }: { data: TReliefGoodsType }) => {
   const { title, amount } = data;
