@@ -76,7 +76,7 @@ const AdminNavbar = () => {
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuGroup className="cursor-pointer">
-                <Link to="/dashboard/profile">
+                <Link to="/admin/profile">
                   <DropdownMenuItem className="cursor-pointer">
                     Profile
                   </DropdownMenuItem>

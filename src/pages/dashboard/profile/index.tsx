@@ -19,22 +19,28 @@ const Profile = () => {
       <div className="bg-slate-100 dark:bg-slate-900 p-5 rounded-md">
         <form className="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
           <div>
-            <Label htmlFor="name">Name</Label>
+            <Label>Name</Label>
             <Input
-              id="name"
               value={userInfo?.name || user?.displayName || ""}
               readOnly
               className="mt-3"
             />
           </div>
           <div>
-            <Label htmlFor="email">Email</Label>
+            <Label>Email</Label>
             <Input
-              id="email"
               value={userInfo?.email || user?.email || ""}
               readOnly
               className="mt-3"
             />
+          </div>
+          <div>
+            <Label>Role</Label>
+            {userInfo?.role === "admin" ? (
+              <Input value="Admin" readOnly className="mt-3" />
+            ) : (
+              <Input value="User" readOnly className="mt-3" />
+            )}
           </div>
         </form>
       </div>

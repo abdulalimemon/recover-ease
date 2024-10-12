@@ -5,7 +5,7 @@ const CreateTestimonial = () => {
   return (
     <>
       <Helmet>
-        <title>Testimonial - Recover Ease</title>
+        <title>Review - Recover Ease</title>
       </Helmet>
       <div className="mb-10">
         <h2 className="text-center text-xl font-semibold py-5">
