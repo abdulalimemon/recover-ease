@@ -62,14 +62,21 @@ const MobileNavbar = ({ toggleMenu }: MenuManager) => {
               <Link to="/volunteer" className="decoration-none font-semibold">
                 Volunteer
               </Link>
-              {userInfo?.role === "admin" ? (
-                <Link to="/admin" className="decoration-none font-semibold">
-                  Dashboard
-                </Link>
+              {userInfo ? (
+                userInfo.role === "admin" ? (
+                  <Link to="/admin" className="decoration-none font-semibold">
+                    Dashboard
+                  </Link>
+                ) : (
+                  <Link
+                    to="/dashboard"
+                    className="decoration-none font-semibold"
+                  >
+                    Dashboard
+                  </Link>
+                )
               ) : (
-                <Link to="/dashboard" className="decoration-none font-semibold">
-                  Dashboard
-                </Link>
+                <></>
               )}
             </nav>
             {userInfo || user ? (
