@@ -2,6 +2,7 @@ import Welcome from "@/pages/dashboard/Home/Welcome";
 import { Helmet } from "react-helmet-async";
 import CardSection from "./CardSection";
 import Charts from "@/pages/dashboard/Home/Charts";
+import UserListTable from "./RecentInfo";
 
 const AdminDashboard = () => {
   return (
@@ -11,6 +12,7 @@ const AdminDashboard = () => {
       </Helmet>
       <Welcome />
       <CardSection />
+      <UserListTable />
       <Charts />
     </>
   );

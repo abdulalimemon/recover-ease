@@ -1,14 +1,21 @@
 import { useContext } from "react";
 import { userAuthContext } from "@/firebase/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
-import Loading from "@/components/layout/Loading";
 import { Button } from "@/components/ui/button";
 import { Text } from "@/type";
 
 const SocialLogin = ({ text }: Text) => {
   const authContext = useContext(userAuthContext);
   if (!authContext) {
-    return <Loading />;
+    return (
+      <>
+        <div className="flex items-center justify-center space-x-2">
+          <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-600"></div>
+          <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-600"></div>
+          <div className="w-4 h-4 rounded-full animate-pulse dark:bg-violet-600"></div>
+        </div>
+      </>
+    );
   }
 
   const { googleSignIn } = authContext;

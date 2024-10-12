@@ -36,9 +36,11 @@ const AllMessageTable = () => {
           )}
           {data?.map((item: TContactInputs) => (
             <TableRow key={item.name}>
-              <TableCell className="font-medium w-[200px]">{item.name}</TableCell>
+              <TableCell className="font-medium w-[200px]">
+                {item.name}
+              </TableCell>
               <TableCell>{item.email}</TableCell>
-              <TableCell >{item.message}</TableCell>
+              <TableCell className="lg:w-[600px]">{item.message}</TableCell>
             </TableRow>
           ))}
         </TableBody>

@@ -38,7 +38,7 @@ const AllCommentsTable = () => {
             <TableRow key={item.name}>
               <TableCell className="font-medium">{item.name}</TableCell>
               <TableCell>{item.email}</TableCell>
-              <TableCell>{item.message}</TableCell>
+              <TableCell className="lg:w-[600px]">{item.message}</TableCell>
             </TableRow>
           ))}
         </TableBody>

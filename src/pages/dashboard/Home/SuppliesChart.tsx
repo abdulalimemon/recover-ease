@@ -14,38 +14,19 @@ import {
 
 // Example chartData
 const chartData = [
-  { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
-  { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
-  { month: "May", desktop: 209 },
-  { month: "June", desktop: 214 },
+  { month: "January", supply: 186 },
+  { month: "February", supply: 305 },
+  { month: "March", supply: 237 },
+  { month: "April", supply: 73 },
+  { month: "May", supply: 209 },
+  { month: "June", supply: 214 },
 ];
 
-// Chart configuration for visitors and colors
+// Chart configuration for supply
 const chartConfig = {
-  visitors: {
-    label: "Visitors",
-  },
-  desktop: {
-    label: "Desktop",
+  supply: {
+    label: "Supply",
     color: "hsl(var(--chart-1))",
-  },
-  chrome: {
-    label: "Chrome",
-    color: "hsl(var(--chart-2))",
-  },
-  safari: {
-    label: "Safari",
-    color: "hsl(var(--chart-3))",
-  },
-  edge: {
-    label: "Edge",
-    color: "hsl(var(--chart-4))",
-  },
-  other: {
-    label: "Other",
-    color: "hsl(var(--chart-5))",
   },
 };
 
@@ -61,7 +42,7 @@ export function SuppliesChart() {
           <BarChart accessibilityLayer data={chartData}>
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month" 
+              dataKey="month"
               tickLine={false}
               tickMargin={10}
               axisLine={false}
@@ -72,8 +53,8 @@ export function SuppliesChart() {
               content={<ChartTooltipContent hideLabel />}
             />
             <Bar
-              dataKey="desktop" 
-              fill={chartConfig.desktop.color}
+              dataKey="supply"
+              fill={chartConfig.supply.color}
               strokeWidth={2}
               radius={8}
               activeIndex={2}
@@ -81,7 +62,7 @@ export function SuppliesChart() {
                 return (
                   <Rectangle
                     {...props}
-                    fillOpacity={0.8}
+                    fillOpacity={1}
                     stroke={props.payload.fill}
                     strokeDasharray={4}
                     strokeDashoffset={4}
