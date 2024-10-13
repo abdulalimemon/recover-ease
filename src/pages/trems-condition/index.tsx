@@ -8,16 +8,16 @@ const TermsAndConditions = () => {
         <Container>
           <div>
             <h1 className="text-center text-2xl lg:text-4xl font-semibold py-5">
-              Terms and Conditions
+              Terms of Service
             </h1>
             <p className="text-center text-base pb-3">
               Last updated: October 13, 2024
             </p>
             <p className="text-sm py-3">
-              This Terms and Conditions describes Our policies and procedures on
-              the collection, use and disclosure of Your information when You
-              use the Service and tells You about Your privacy rights and how
-              the law protects You.
+              This Terms of Service describes Our policies and procedures on the
+              collection, use and disclosure of Your information when You use
+              the Service and tells You about Your privacy rights and how the
+              law protects You.
             </p>
 
             <h2 className="text-2xl font-semibold pb-3">
@@ -499,11 +499,11 @@ const TermsAndConditions = () => {
               <li>
                 By visiting this page on our website:{" "}
                 <a
-                  href="https://recover-ease.netlify.app/terms-and-conditions"
+                  href="https://recover-ease.netlify.app/contact-us"
                   rel="external nofollow noopener"
                   target="_blank"
                 >
-                  https://recover-ease.netlify.app/terms-and-conditions
+                  https://recover-ease.netlify.app/contact-us
                 </a>
               </li>
             </ul>

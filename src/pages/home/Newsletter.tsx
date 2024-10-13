@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { useSubscribeMutation } from "@/redux/features/newsletter/newsletterApi";
 import { TSubscribeInputs } from "@/type";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import { toast } from "sonner";
 
 const people = [
@@ -175,7 +176,15 @@ const Newsletter = () => {
               <p className="mt-2 text-left lg:text-center max-w-md lg:mx-auto">
                 <span className="text-sm text-black">
                   Subscribe to our newsletter and stay connected. By signing up,
-                  you agree to our terms of service and privacy policy.
+                  you agree to our{" "}
+                  <Link to="/terms-of-service" className="text-blue-500">
+                    terms of service
+                  </Link>{" "}
+                  and{" "}
+                  <Link to="/privacy-policy" className="text-blue-500">
+                    privacy policy
+                  </Link>
+                  .
                 </span>
               </p>
             </div>

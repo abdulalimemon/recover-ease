@@ -11,7 +11,7 @@ const Footer = () => {
         <div className="flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
           <div className="lg:w-1/4">
             <p className="font-bold text-xl text-gradient">Recover Ease</p>
-            <p className="mt-3 text-sm">
+            <p className="mt-3 text-sm text">
               Helping those in need, when they need it most. Our mission is to
               ensure fast, organized relief efforts to deliver essential
               supplies and aid during emergencies.
@@ -23,16 +23,16 @@ const Footer = () => {
                 Quick Links
               </h3>
               <div className="space-y-1 flex flex-col font-medium text-base">
-                <Link to="/" className="text">
+                <Link to="/" className="footer-link">
                   Home
                 </Link>
-                <Link to="/all-relief-goods" className="text">
+                <Link to="/all-relief-goods" className="footer-link">
                   Relief Goods
                 </Link>
-                <Link to="/leaderboard" className="text">
+                <Link to="/leaderboard" className="footer-link">
                   Leaderboard
                 </Link>
-                <Link to="/volunteer" className="text">
+                <Link to="/volunteer" className="footer-link">
                   Volunteer
                 </Link>
               </div>
@@ -42,17 +42,17 @@ const Footer = () => {
                 About
               </h3>
               <div className="space-y-1 flex flex-col font-medium text-base">
-                <Link to="/about-us" className="text">
+                <Link to="/about-us" className="footer-link">
                   About Us
                 </Link>
-                <Link to="/contact-us" className="text">
+                <Link to="/contact-us" className="footer-link">
                   Contact Us
                 </Link>
 
-                <Link to="/community" className="text">
+                <Link to="/community" className="footer-link">
                   Community
                 </Link>
-                <Link to="/faq" className="text">
+                <Link to="/faq" className="footer-link">
                   FAQ
                 </Link>
               </div>
@@ -62,16 +62,16 @@ const Footer = () => {
                 Resources
               </h3>
               <div className="space-y-1 flex flex-col font-medium text-base">
-                <Link to="/" className="text">
+                <Link to="/" className="footer-link">
                   Home
                 </Link>
-                <Link to="/privacy-policy" className="text">
+                <Link to="/privacy-policy" className="footer-link">
                   Privacy Policy
                 </Link>
-                <Link to="/terms-and-conditions" className="text">
-                  Terms & Conditions
+                <Link to="/terms-of-service" className="footer-link">
+                  Terms of Service
                 </Link>
-                <Link to="/volunteer" className="text">
+                <Link to="/volunteer" className="footer-link">
                   Volunteer
                 </Link>
               </div>

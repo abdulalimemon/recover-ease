@@ -90,4 +90,7 @@
   .text2{
     @apply text-gray-700 dark:text-gray-500;
   }
+  .footer-link {
+    @apply text hover:text-blue-500 hover:underline;
+  }
 }

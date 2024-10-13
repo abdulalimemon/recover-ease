@@ -498,11 +498,11 @@ const PrivacyPolicy = () => {
               <li>
                 By visiting this page on our website:{" "}
                 <a
-                  href="https://recover-ease.netlify.app/privacy-policy"
+                  href="https://recover-ease.netlify.app/contact-us"
                   rel="external nofollow noopener"
                   target="_blank"
                 >
-                  https://recover-ease.netlify.app/privacy-policy
+                  https://recover-ease.netlify.app/contact-us
                 </a>
               </li>
             </ul>
