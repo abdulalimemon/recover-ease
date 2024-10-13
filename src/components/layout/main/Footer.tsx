@@ -65,11 +65,11 @@ const Footer = () => {
                 <Link to="/" className="text">
                   Home
                 </Link>
-                <Link to="/contact-us" className="text">
-                  Contact
+                <Link to="/privacy-policy" className="text">
+                  Privacy Policy
                 </Link>
-                <Link to="/leaderboard" className="text">
-                  Leaderboard
+                <Link to="/terms-and-conditions" className="text">
+                  Terms & Conditions
                 </Link>
                 <Link to="/volunteer" className="text">
                   Volunteer

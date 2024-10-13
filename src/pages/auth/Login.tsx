@@ -50,7 +50,7 @@ const Login = () => {
         <title>Login - Recover Ease</title>
       </Helmet>
       <section className="py-14 lg:py-2 w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
-        <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
+        <div className="absolute pointer-events-none inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <Container className="py-16 md:py-0">
           <div className="flex items-center h-full justify-center py-10 sm:py-16 lg:py-24 ">
             <div className="xl:mx-auto w-full md:max-w-sm 2xl:max-w-md">

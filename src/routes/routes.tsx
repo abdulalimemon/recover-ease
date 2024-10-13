@@ -30,6 +30,8 @@ import Newsletters from "@/pages/admin/newsletter";
 import Message from "@/pages/admin/message";
 import UserDashboard from "@/pages/dashboard/Home";
 import AdminDashboard from "@/pages/admin/home";
+import PrivacyPolicy from "@/pages/privacy";
+import TermsAndConditions from "@/pages/trems-condition";
 
 const router = createBrowserRouter([
   {
@@ -79,6 +81,14 @@ const router = createBrowserRouter([
       {
         path: "faq",
         element: <FAQ />,
+      },
+      {
+        path: "privacy-policy",
+        element: <PrivacyPolicy />,
+      },
+      {
+        path: "terms-and-conditions",
+        element: <TermsAndConditions />,
       },
     ],
   },
