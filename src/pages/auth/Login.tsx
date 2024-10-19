@@ -1,7 +1,6 @@
 import Container from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, EyeIcon, EyeOffIcon, Mail } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useLoginMutation } from "@/redux/features/auth/authApi";
@@ -12,6 +11,7 @@ import { verifyToken } from "@/utils/verifyToken";
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "./SocialLogin";
 import { TLoginInputs } from "@/type";
+import { useState } from "react";
 
 const Login = () => {
   const {
@@ -22,6 +22,8 @@ const Login = () => {
   const [login] = useLoginMutation();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const [isVisible, setIsVisible] = useState(false);
+  const toggleVisibility = () => setIsVisible(!isVisible);
 
   const onSubmit: SubmitHandler<TLoginInputs> = async (data) => {
     try {
@@ -74,21 +76,27 @@ const Login = () => {
                       Email{" "}
                     </label>
                     <div className="mt-2">
-                      <Input
-                        type="email"
-                        id="email"
-                        placeholder="Email"
-                        {...register("email", {
-                          required: {
-                            value: true,
-                            message: "Email is Required.",
-                          },
-                          pattern: {
-                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                            message: "Please provide a valid email address.",
-                          },
-                        })}
-                      />
+                      <div className="relative">
+                        <input
+                          type="email"
+                          id="email"
+                          className="input-style"
+                          placeholder="Email"
+                          {...register("email", {
+                            required: {
+                              value: true,
+                              message: "Email is Required.",
+                            },
+                            pattern: {
+                              value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                              message: "Please provide a valid email address.",
+                            },
+                          })}
+                        />
+                        <span className="absolute inset-y-0 right-0 flex items-center px-5">
+                          <Mail className="size-5 text-gray-500" />
+                        </span>
+                      </div>
                     </div>
                     <div className="pt-2">
                       {errors.email?.type === "required" && (
@@ -114,29 +122,45 @@ const Login = () => {
                       </label>
                       <Link
                         to="/"
-                        className="text-sm font-semibold text-black hover:underline"
+                        className="text-sm font-semibold text-black dark:text-white hover:underline"
                       >
                         {" "}
                         Forgot password?{" "}
                       </Link>
                     </div>
                     <div className="mt-2">
-                      <Input
-                        type="password"
-                        id="password"
-                        placeholder="Password"
-                        {...register("password", {
-                          required: {
-                            value: true,
-                            message: "Password is Required",
-                          },
-                          minLength: {
-                            value: 8,
-                            message: "Password must be 8 characters or longer.",
-                          },
-                        })}
-                      />
+                      <div className="relative">
+                        <input
+                          type={isVisible ? "text" : "password"}
+                          className="input-style"
+                          placeholder="Password"
+                          id="password"
+                          {...register("password", {
+                            required: {
+                              value: true,
+                              message: "Password is Required",
+                            },
+                            minLength: {
+                              value: 8,
+                              message:
+                                "Password must be 8 characters or longer.",
+                            },
+                          })}
+                        />
+
+                        <span
+                          className="absolute inset-y-0 right-0 flex items-center px-5"
+                          onClick={toggleVisibility}
+                        >
+                          {isVisible ? (
+                            <EyeIcon className="size-5 text-gray-500 cursor-pointer" />
+                          ) : (
+                            <EyeOffIcon className="size-5 cursor-pointer text-gray-500" />
+                          )}
+                        </span>
+                      </div>
                     </div>
+
                     <div className="pt-2">
                       {errors.password?.type === "required" && (
                         <span className="text-sm mt-2 text-red-600 font-semibold">

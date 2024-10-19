@@ -3,9 +3,12 @@ import { userAuthContext } from "@/firebase/AuthProvider";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Text } from "@/type";
+import { toast } from "sonner";
+import { useSigninMutation } from "@/redux/features/auth/authApi";
 
 const SocialLogin = ({ text }: Text) => {
   const authContext = useContext(userAuthContext);
+
   if (!authContext) {
     return (
       <>
@@ -21,20 +24,36 @@ const SocialLogin = ({ text }: Text) => {
   const { googleSignIn } = authContext;
   const navigate = useNavigate();
   const location = useLocation();
+  const [signin] = useSigninMutation();
 
   const from = location.state?.from?.pathname || "/";
 
-  const handleGoogleSignIn = () => {
-    if (!authContext) {
-      console.error("Auth context is not available.");
-      return;
-    }
+  const handleGoogleSignIn = async () => {
+    try {
+      if (!authContext) {
+        console.error("Auth context is not available.");
+        return;
+      }
 
-    googleSignIn().then((result) => {
-      const loggedInUser = result.user;
-      loggedInUser;
-      navigate(from, { replace: true });
-    });
+      googleSignIn().then(async (result) => {
+        const userInfo = {
+          name: result?.user?.displayName || "",
+          email: result?.user?.email || "",
+          password: "",
+        };
+
+        const res = await signin(userInfo).unwrap();
+
+        if (res.data.success == false) {
+          toast("User Already Exists In Database");
+          return;
+        }
+
+        navigate(from, { replace: true });
+      });
+    } catch (error) {
+      toast("Google Sign-In Failed");
+    }
   };
 
   return (

@@ -1,7 +1,6 @@
 import Container from "@/components/layout/Container";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, EyeIcon, EyeOffIcon, Mail, User } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 import { useSigninMutation } from "@/redux/features/auth/authApi";
@@ -9,6 +8,7 @@ import { toast } from "sonner";
 import { Helmet } from "react-helmet-async";
 import SocialLogin from "./SocialLogin";
 import { TRegisterInputs } from "@/type";
+import { useState } from "react";
 
 const Registration = () => {
   const {
@@ -19,6 +19,8 @@ const Registration = () => {
 
   const [signin] = useSigninMutation();
   const navigate = useNavigate();
+  const [isVisible, setIsVisible] = useState(false);
+  const toggleVisibility = () => setIsVisible(!isVisible);
 
   const onSubmit: SubmitHandler<TRegisterInputs> = async (
     data: FieldValues
@@ -47,7 +49,7 @@ const Registration = () => {
       <Helmet>
         <title>Registration - Recover Ease</title>
       </Helmet>
-      <section className="py-16 lg:py-10 w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
+      <section className="py-10 lg:py-3 w-full dark:bg-black bg-white  dark:bg-grid-white/[0.2] bg-grid-black/[0.2] relative flex items-center justify-center">
         <div className="absolute pointer-events-none inset-0 flex items-center justify-center [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div>
         <Container className="py-16 md:py-0">
           <div className="flex h-full items-center justify-center py-10 6 sm:py-16 lg:py-24">
@@ -72,21 +74,27 @@ const Registration = () => {
                       Full Name{" "}
                     </label>
                     <div className="mt-2">
-                      <Input
-                        type="text"
-                        placeholder="Full Name"
-                        id="name"
-                        {...register("name", {
-                          required: {
-                            value: true,
-                            message: "Name is Required",
-                          },
-                          minLength: {
-                            value: 3,
-                            message: "Name must be 3 characters or longer.",
-                          },
-                        })}
-                      />
+                      <div className="relative">
+                        <input
+                          type="text"
+                          placeholder="Full Name"
+                          id="name"
+                          className="input-style"
+                          {...register("name", {
+                            required: {
+                              value: true,
+                              message: "Name is Required",
+                            },
+                            minLength: {
+                              value: 3,
+                              message: "Name must be 3 characters or longer.",
+                            },
+                          })}
+                        />
+                        <span className="absolute inset-y-0 right-0 flex items-center px-5">
+                          <User className="size-5 text-gray-500" />
+                        </span>
+                      </div>
                     </div>
                     <div className="pt-2">
                       {errors.name?.type === "required" && (
@@ -107,21 +115,27 @@ const Registration = () => {
                       Email{" "}
                     </label>
                     <div className="mt-2">
-                      <Input
-                        type="email"
-                        placeholder="Email"
-                        id="email"
-                        {...register("email", {
-                          required: {
-                            value: true,
-                            message: "Email is Required.",
-                          },
-                          pattern: {
-                            value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
-                            message: "Please provide a valid email address.",
-                          },
-                        })}
-                      />
+                      <div className="relative">
+                        <input
+                          type="email"
+                          id="email"
+                          className="input-style"
+                          placeholder="Email"
+                          {...register("email", {
+                            required: {
+                              value: true,
+                              message: "Email is Required.",
+                            },
+                            pattern: {
+                              value: /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/,
+                              message: "Please provide a valid email address.",
+                            },
+                          })}
+                        />
+                        <span className="absolute inset-y-0 right-0 flex items-center px-5">
+                          <Mail className="size-5 text-gray-500" />
+                        </span>
+                      </div>
                     </div>
 
                     <div className="pt-2">
@@ -148,21 +162,36 @@ const Registration = () => {
                       </label>
                     </div>
                     <div className="mt-2">
-                      <Input
-                        type="password"
-                        placeholder="Password"
-                        id="password"
-                        {...register("password", {
-                          required: {
-                            value: true,
-                            message: "Password is Required.",
-                          },
-                          minLength: {
-                            value: 8,
-                            message: "Password must be 8 characters or longer.",
-                          },
-                        })}
-                      />
+                      <div className="relative">
+                        <input
+                          type={isVisible ? "text" : "password"}
+                          className="input-style"
+                          placeholder="Password"
+                          id="password"
+                          {...register("password", {
+                            required: {
+                              value: true,
+                              message: "Password is Required",
+                            },
+                            minLength: {
+                              value: 8,
+                              message:
+                                "Password must be 8 characters or longer.",
+                            },
+                          })}
+                        />
+
+                        <span
+                          className="absolute inset-y-0 right-0 flex items-center px-5"
+                          onClick={toggleVisibility}
+                        >
+                          {isVisible ? (
+                            <EyeIcon className="size-5 text-gray-500 cursor-pointer" />
+                          ) : (
+                            <EyeOffIcon className="size-5 cursor-pointer text-gray-500" />
+                          )}
+                        </span>
+                      </div>
                     </div>
                     <div className="pt-2">
                       {errors.password?.type === "required" && (
